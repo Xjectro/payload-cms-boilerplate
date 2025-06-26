@@ -1,23 +1,23 @@
-import { Section, Container } from '@/components/ds'
-import { User as UserIcon } from 'lucide-react'
-import { LogoutButton } from '@/components/auth/logout-button'
+import { Section, Container } from '@/components/ds';
+import { User as UserIcon } from 'lucide-react';
+import { LogoutButton } from '@/components/auth/logout-button';
 
-import { redirect } from 'next/navigation'
-import { getUser } from '@/lib/auth'
+import { redirect } from 'next/navigation';
+import { getUser } from '@/lib/auth';
 
-import type { User } from '@/payload-types'
+import type { User } from '@/payload-types';
 
 export default async function Admin() {
-  const user: User | null = await getUser()
+  const user: User | null = await getUser();
 
   if (!user) {
-    redirect('/login')
+    redirect('/login');
   }
 
-  const createdAt = user.createdAt ? new Date(user.createdAt) : new Date()
-  const now = new Date()
-  const formattedCreatedAt = createdAt.toLocaleDateString()
-  const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24))
+  const createdAt = user.createdAt ? new Date(user.createdAt) : new Date();
+  const now = new Date();
+  const formattedCreatedAt = createdAt.toLocaleDateString();
+  const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24));
 
   return (
     <>
@@ -58,7 +58,7 @@ export default async function Admin() {
         </Container>
       </Section>
     </>
-  )
+  );
 }
 
 const UserProfile = ({ user, accountAgeDays }: { user: User; accountAgeDays: number }) => {
@@ -81,5 +81,5 @@ const UserProfile = ({ user, accountAgeDays }: { user: User; accountAgeDays: num
         protected features.
       </p>
     </div>
-  )
-}
+  );
+};

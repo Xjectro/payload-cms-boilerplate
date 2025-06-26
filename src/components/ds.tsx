@@ -4,7 +4,7 @@
  * @description Provides layout components for structuring pages and a design system for prose content.
  */
 
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 /**
  * Props for layout components.
@@ -20,15 +20,15 @@ import { cn } from '@/lib/utils'
  */
 
 type DSProps = {
-  className?: string
-  children?: React.ReactNode
-  id?: string
-  style?: React.CSSProperties
-  dangerouslySetInnerHTML?: { __html: string }
-  containerClassName?: string
-  isArticle?: boolean
-  isSpaced?: boolean
-}
+  className?: string;
+  children?: React.ReactNode;
+  id?: string;
+  style?: React.CSSProperties;
+  dangerouslySetInnerHTML?: { __html: string };
+  containerClassName?: string;
+  isArticle?: boolean;
+  isSpaced?: boolean;
+};
 
 /**
  * Section component to wrap content in a section element.
@@ -44,7 +44,7 @@ export const Section = ({ children, className, id, style }: DSProps) => (
   <section className={cn('py-2 sm:py-4', className)} id={id} style={style}>
     {children}
   </section>
-)
+);
 
 /**
  * Container component to wrap content within a centered div with padding.
@@ -60,7 +60,7 @@ export const Container = ({ children, className, id, style }: DSProps) => (
   <div className={cn('container', className)} id={id} style={style}>
     {children}
   </div>
-)
+);
 
 /**
  * Nav component to render a navigation container with an inner div.
@@ -78,12 +78,12 @@ export const Nav = ({ children, className, id, style, containerClassName }: DSPr
   <nav className={cn(className)} id={id} style={style}>
     <div
       id="nav-container"
-      className={cn('max-w-5xl mx-auto px-4 sm:px-6 py-3', containerClassName)}
+      className={cn('container py-3', containerClassName)}
     >
       {children}
     </div>
   </nav>
-)
+);
 
 /**
  * Layout component that renders the root HTML element with global settings.
@@ -104,7 +104,7 @@ export const Layout = ({ children, className, style }: DSProps) => (
   >
     {children}
   </html>
-)
+);
 
 /**
  * Main component to wrap the primary content of the page.
@@ -120,7 +120,7 @@ export const Main = ({ children, className, id, style }: DSProps) => (
   <main className={cn('', className)} id={id} style={style}>
     {children}
   </main>
-)
+);
 
 /**
  * Prose component to render formatted rich text content.
@@ -145,7 +145,7 @@ export const Prose = ({
   isArticle = false,
   isSpaced = false,
 }: DSProps) => {
-  const Component = isArticle ? 'article' : 'div'
+  const Component = isArticle ? 'article' : 'div';
 
   return (
     <Component
@@ -244,5 +244,5 @@ export const Prose = ({
     >
       {children}
     </Component>
-  )
-}
+  );
+};

@@ -1,42 +1,41 @@
-import { Section, Container, Prose } from '@/components/ds'
-import { Button } from '@/components/ui/button'
-import { Check } from 'lucide-react'
+import { Section, Container, Prose } from '@/components/ds';
+import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default async function Index() {
-  return <ToDelete />
+  return <ToDelete />;
 }
 
-// Delete and make this your homepage
 const ToDelete = () => {
   const FeatureCategory = ({ title, features }: { title: string; features: string[] }) => {
     return (
       <div>
-        <h3 className="text-xl font-semibold mb-4">{title}</h3>
+        <h3 className="mb-4 text-xl font-semibold">{title}</h3>
         <ul className="space-y-2">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
-              <Check className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+              <Check className="mt-0.5 mr-2 h-5 w-5 flex-shrink-0 text-primary" />
               <span>{feature}</span>
             </li>
           ))}
         </ul>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <>
       <Section className="border-b">
         <Container>
           <Prose isSpaced>
-            <h1>Payload SaaS Starter</h1>
+            <h1>Payload CMS Boilerplate</h1>
             <h4>A modern, open-source SaaS starter kit built with Next.js 15 and Payload CMS</h4>
           </Prose>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Button asChild>
-              <Link href="https://github.com/Xjectro/payload-saas-starter">Get Started</Link>
+              <Link href="https://github.com/Xjectro/payload-cms-boilerplate">Get Started</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/register">Sign Up</Link>
@@ -48,7 +47,7 @@ const ToDelete = () => {
         <Container>
           <div>
             <h2 className="sr-only">What&apos;s Included</h2>
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+            <div className="grid gap-x-12 gap-y-8 md:grid-cols-2">
               <FeatureCategory
                 title="Authentication System"
                 features={[
@@ -125,5 +124,5 @@ const ToDelete = () => {
         </Container>
       </Section>
     </>
-  )
-}
+  );
+};

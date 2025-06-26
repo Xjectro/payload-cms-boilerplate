@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { SubmitButton } from '@/components/auth/submit-button'
+import { SubmitButton } from '@/components/auth/submit-button';
 import {
   Form,
   FormControl,
@@ -9,19 +9,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Checkbox } from '@/components/ui/checkbox'
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { loginSchema } from '@/utils/schemas/auth.schemas'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { loginSchema } from '@/utils/schemas/auth';
 
-import { loginUser } from '@/lib/auth'
-import { redirect } from 'next/navigation'
+import { loginUser } from '@/lib/auth';
+import { redirect } from 'next/navigation';
 
-import type { LoginResponse } from '@/lib/auth'
-import type { LoginSchema } from '@/utils/schemas/auth.schemas'
+import type { LoginResponse } from '@/lib/auth';
+import type { LoginSchema } from '@/utils/schemas/auth';
 
 export function LoginForm() {
   const form = useForm<LoginSchema>({
@@ -31,19 +31,19 @@ export function LoginForm() {
       password: '',
       rememberMe: false,
     },
-  })
+  });
 
   async function onSubmit(values: LoginSchema) {
-    const res: LoginResponse = await loginUser(values)
+    const res: LoginResponse = await loginUser(values);
     if (res.error) {
     } else {
-      redirect('/dashboard')
+      redirect('/dashboard');
     }
   }
 
   return (
     <Form {...form}>
-      <form className="grid gap-6 my-6" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="my-6 grid gap-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           name="email"
           control={form.control}
@@ -54,7 +54,8 @@ export function LoginForm() {
                 <Input {...field} />
               </FormControl>
               <FormDescription>
-                Enter your email address. This will be used for account verification and notifications.
+                Enter your email address. This will be used for account verification and
+                notifications.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -93,5 +94,5 @@ export function LoginForm() {
         <SubmitButton loading={form.formState.isSubmitting} text="Login" />
       </form>
     </Form>
-  )
+  );
 }

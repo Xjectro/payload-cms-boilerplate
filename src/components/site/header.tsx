@@ -1,25 +1,31 @@
-import { LogoutButton } from '@/components/auth/logout-button'
-import { Button } from '../ui/button'
-import { Nav } from '@/components/ds'
+import { LogoutButton } from '@/components/auth/logout-button';
+import { Button } from '../ui/button';
+import { Nav } from '@/components/ds';
 
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { getUser } from '@/lib/auth'
+import { getUser } from '@/lib/auth';
 
-import type { User } from '@/payload-types'
+import type { User } from '@/payload-types';
 
-export async function Header () {
-  const user: User | null = await getUser()
+export async function Header() {
+  const user: User | null = await getUser();
 
   return (
     <Nav
-      className="border-b sticky top-0 bg-accent/30 backdrop-blur-md"
+      className="sticky top-0 border-b bg-accent/30 backdrop-blur-md"
       containerClassName="flex justify-between items-center gap-4"
     >
-      <Link href="/" className="flex gap-3 items-center">
-        <Image src="/logo.svg" width={14} height={14} alt="Payload SaaS Starter" className="invert dark:invert-0" />
-        <h3 className="sm:text-lg">Payload SaaS Starter</h3>
+      <Link href="/" className="flex items-center gap-3">
+        <Image
+          src="/favicon.ico"
+          width={24}
+          height={24}
+          alt="Payload CMS Boilerplate"
+          className="invert dark:invert-0"
+        />
+        <h3 className="sm:text-lg">Payload CMS Boilerplate</h3>
       </Link>
 
       <div className="flex gap-2">
@@ -42,5 +48,5 @@ export async function Header () {
         )}
       </div>
     </Nav>
-  )
+  );
 }

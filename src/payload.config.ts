@@ -1,67 +1,80 @@
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
-import { postgresAdapter } from '@payloadcms/db-postgres'
-import { fileURLToPath } from 'url'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { buildConfig } from 'payload'
+import { fileURLToPath } from 'url';
 
-// If you want to use Cloudflare R2 or AWS S3, uncomment the following lines
-// import { s3Storage } from '@payloadcms/storage-s3'
+import { buildConfig } from 'payload';
+import { payloadCloudPlugin } from '@payloadcms/payload-cloud';
+import { postgresAdapter } from '@payloadcms/db-postgres';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 
-import sharp from 'sharp'
-import path from 'path'
+import sharp from 'sharp';
+import path from 'path';
 
-import { Users } from './collections/Users'
-import { Media } from './collections/Media'
+import { Users } from '@/collections/Users';
+import { Media } from '@/collections/Media';
+import { Pages } from '@/collections/Pages';
+import { plugins } from '@/utils/plugins';
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
     user: Users.slug,
+    //
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    //
+    livePreview: {
+      breakpoints: [
+        {
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
+        },
+        {
+          label: 'Tablet',
+          name: 'tablet',
+          width: 768,
+          height: 1024,
+        },
+        {
+          label: 'Desktop',
+          name: 'desktop',
+          width: 1440,
+          height: 900,
+        },
+      ],
+    },
   },
-  collections: [Users, Media],
+  //
+  collections: [Users, Media, Pages],
   editor: lexicalEditor(),
+  //
   secret: process.env.PAYLOAD_SECRET || '',
+  cors: [process.env.SITE_URL!],
+  //
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+  //
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
+  //
   sharp,
-  plugins: [
-    payloadCloudPlugin(),
-/**
- *     vercelBlobStorage({
-      enabled: true,
-      collections: {
-        media: true,
+  //
+  plugins: [...plugins, payloadCloudPlugin()],
+  //
+  jobs: {
+    access: {
+      run: ({ req: { user, headers } }) => {
+        if (Boolean(user)) return true;
+        const authHeader = headers.get('authorization');
+        return authHeader === `Bearer ${process.env.CRON_SECRET}`;
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    }),
- */
-
-    // s3Storage({
-    //   collections: {
-    //     media: true,
-    //   },
-    //   bucket: process.env.R2_BUCKET || '',
-    //   config: {
-    //     endpoint: process.env.R2_ENDPOINT || '',
-    //     credentials: {
-    //       accessKeyId: process.env.R2_ACCESS_KEY_ID || '',
-    //       secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || '',
-    //     },
-    //     region: 'auto',
-    //     forcePathStyle: true,
-    //   },
-    // }),
-  ],
-})
+    },
+  },
+});

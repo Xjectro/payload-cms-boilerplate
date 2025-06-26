@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { SubmitButton } from '@/components/auth/submit-button'
+import { SubmitButton } from '@/components/auth/submit-button';
 import {
   Form,
   FormControl,
@@ -9,19 +9,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Checkbox } from '@/components/ui/checkbox'
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import {registerSchema} from '@/utils/schemas/auth.schemas'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { registerSchema } from '@/utils/schemas/auth';
 
-import { registerUser } from '@/lib/auth'
-import { redirect } from 'next/navigation'
+import { registerUser } from '@/lib/auth';
+import { redirect } from 'next/navigation';
 
-import type { LoginResponse } from '@/lib/auth'
-import type { RegisterSchema } from '@/utils/schemas/auth.schemas'
+import type { LoginResponse } from '@/lib/auth';
+import type { RegisterSchema } from '@/utils/schemas/auth';
 
 export function RegisterForm() {
   const form = useForm<RegisterSchema>({
@@ -29,21 +29,21 @@ export function RegisterForm() {
     defaultValues: {
       email: '',
       password: '',
- termsAccepted:false
+      termsAccepted: false,
     },
-  })
+  });
 
   async function onSubmit(values: RegisterSchema) {
-    const res: LoginResponse = await registerUser(values)
+    const res: LoginResponse = await registerUser(values);
     if (res.error) {
     } else {
-      redirect('/login')
+      redirect('/login');
     }
   }
 
   return (
     <Form {...form}>
-      <form className="grid gap-6 my-6" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="my-6 grid gap-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           name="email"
           control={form.control}
@@ -54,7 +54,8 @@ export function RegisterForm() {
                 <Input {...field} />
               </FormControl>
               <FormDescription>
-                Enter your email address. This will be used for account verification and notifications.
+                Enter your email address. This will be used for account verification and
+                notifications.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -69,9 +70,7 @@ export function RegisterForm() {
               <FormControl>
                 <Input type="password" {...field} />
               </FormControl>
-              <FormDescription>
-                Your password must be at least 6 characters long.
-              </FormDescription>
+              <FormDescription>Your password must be at least 6 characters long.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -99,7 +98,11 @@ export function RegisterForm() {
           render={({ field }) => (
             <FormItem className="flex flex-row items-center gap-2">
               <FormControl>
-                <Checkbox id="termsAccepted" checked={field.value} onCheckedChange={field.onChange} />
+                <Checkbox
+                  id="termsAccepted"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
               </FormControl>
               <FormLabel htmlFor="termsAccepted">Accept terms</FormLabel>
             </FormItem>
@@ -109,5 +112,5 @@ export function RegisterForm() {
         <SubmitButton loading={form.formState.isSubmitting} text="Sign Up" />
       </form>
     </Form>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import { LoginForm } from '@/components/auth/login-form'
-import { AuthBox } from '@/components/auth/auth-box'
+import { LoginForm } from '@/components/auth/login-form';
+import { AuthBox } from '@/components/auth/auth-box';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default async function LoginPage() {
   return (
@@ -15,5 +15,5 @@ export default async function LoginPage() {
         </Link>
       </p>
     </AuthBox>
-  )
+  );
 }

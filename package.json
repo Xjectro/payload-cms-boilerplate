@@ -1,5 +1,5 @@
 {
-  "name": "payload-saas-starter",
+  "name": "payload-cms-boilerplate",
   "version": "1.0.0",
   "description": "A blank template to get started with Payload 3.0",
   "license": "MIT",
@@ -12,7 +12,8 @@
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "format": "prettier --write ."
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -23,8 +24,11 @@
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
     "@payloadcms/db-postgres": "3.43.0",
+    "@payloadcms/live-preview-react": "^3.43.0",
     "@payloadcms/next": "3.43.0",
     "@payloadcms/payload-cloud": "3.43.0",
+    "@payloadcms/plugin-redirects": "^3.43.0",
+    "@payloadcms/plugin-seo": "^3.43.0",
     "@payloadcms/richtext-lexical": "3.43.0",
     "@payloadcms/storage-s3": "3.43.0",
     "@payloadcms/storage-vercel-blob": "3.43.0",
@@ -40,6 +44,8 @@
     "next-themes": "^0.4.6",
     "payload": "3.43.0",
     "postcss": "^8.5.6",
+    "prettier-plugin-tailwindcss": "^0.6.13",
+    "prism-react-renderer": "^2.4.1",
     "radix-ui": "^1.4.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",

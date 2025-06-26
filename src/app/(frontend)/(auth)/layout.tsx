@@ -1,17 +1,17 @@
-import { redirect } from 'next/navigation'
-import { getUser } from '@/lib/auth'
+import { redirect } from 'next/navigation';
+import { getUser } from '@/lib/auth';
 
-import { Footer } from '@/components/site/footer'
-import { Container, Section } from '@/components/ds'
+import { Footer } from '@/components/site/footer';
+import { Container, Section } from '@/components/ds';
 
-import type { User } from '@/payload-types'
-import type { PropsWithChildren } from 'react'
+import type { User } from '@/payload-types';
+import type { PropsWithChildren } from 'react';
 
 export default async function AuthLayout({ children }: PropsWithChildren) {
-  const user: User | null = await getUser()
+  const user: User | null = await getUser();
 
   if (user) {
-    redirect('/login')
+    redirect('/login');
   }
 
   return (
@@ -23,5 +23,5 @@ export default async function AuthLayout({ children }: PropsWithChildren) {
       </main>
       <Footer />
     </>
-  )
+  );
 }

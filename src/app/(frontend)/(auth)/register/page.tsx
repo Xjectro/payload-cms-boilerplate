@@ -1,7 +1,7 @@
-import { RegisterForm } from '@/components/auth/register-form'
-import { AuthBox } from '@/components/auth/auth-box'
+import { RegisterForm } from '@/components/auth/register-form';
+import { AuthBox } from '@/components/auth/auth-box';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default async function RegisterPage() {
   return (
@@ -15,5 +15,5 @@ export default async function RegisterPage() {
         </Link>
       </p>
     </AuthBox>
-  )
+  );
 }

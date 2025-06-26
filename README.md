@@ -2,7 +2,7 @@
 
 > **Modern, powerful and super fun CMS experience!** 🎉
 
-Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.0** and **Next│   ├── 🎨 styles/                 # Global stylesjs 15**! Everything is ready to get started right away! ✨
+Hello world! 👋 This is a super powerful boilerplate built with Payload CMS 3.0 and Next.js 15! Everything is ready to get started right away! ✨
 
 ## 🌟 Features
 

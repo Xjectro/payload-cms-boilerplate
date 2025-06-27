@@ -26,6 +26,7 @@ export const Media: CollectionConfig = {
     staticDir: path.join(dirname, '../../../public/media'),
     adminThumbnail: 'thumbnail',
     focalPoint: true,
+    mimeTypes: ['image/*'],
     imageSizes: [
       {
         name: 'thumbnail',
@@ -47,10 +48,12 @@ export const Media: CollectionConfig = {
       {
         name: 'large',
         width: 1400,
+        withoutEnlargement: true,
       },
       {
         name: 'xlarge',
         width: 1920,
+        withoutEnlargement: true,
       },
       {
         name: 'og',

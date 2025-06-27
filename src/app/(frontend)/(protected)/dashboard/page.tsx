@@ -23,7 +23,7 @@ export default async function Admin() {
     <>
       <Section>
         <Container>
-          <div className="flex justify-between items-center mb-8">
+          <div className="mb-8 flex items-center justify-between">
             <h1 className="text-xl">Dashboard</h1>
             <LogoutButton />
           </div>
@@ -33,8 +33,8 @@ export default async function Admin() {
               <UserProfile user={user} accountAgeDays={accountAgeDays} />
             </div>
 
-            <div className="border rounded-lg p-6">
-              <h2 className="text-lg mb-4">Account Summary</h2>
+            <div className="rounded-lg border p-6">
+              <h2 className="mb-4 text-lg">Account Summary</h2>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Account type</span>
@@ -63,14 +63,14 @@ export default async function Admin() {
 
 const UserProfile = ({ user, accountAgeDays }: { user: User; accountAgeDays: number }) => {
   return (
-    <div className="border rounded-lg p-6 space-y-4">
+    <div className="space-y-4 rounded-lg border p-6">
       <div className="flex items-center gap-4">
-        <div className="bg-primary/10 rounded-full p-3">
+        <div className="rounded-full bg-primary/10 p-3">
           <UserIcon className="h-8 w-8 text-primary" />
         </div>
         <div>
           <h2 className="text-lg">Welcome, {user.email}</h2>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-sm text-muted-foreground">
             Member for {accountAgeDays} {accountAgeDays === 1 ? 'day' : 'days'}
           </p>
         </div>

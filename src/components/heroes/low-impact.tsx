@@ -10,7 +10,7 @@ type Props = Page['hero'];
 
 function LowImpactHero({ richText, links }: Props) {
   return (
-    <Section className="bg-accent/30 border-b">
+    <Section className="border-b bg-accent/30">
       <Container className="space-y-3 sm:space-y-6">
         {richText && <RichText data={richText} enableGutter={false} />}
 

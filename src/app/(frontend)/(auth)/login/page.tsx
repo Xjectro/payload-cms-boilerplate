@@ -8,7 +8,7 @@ export default async function LoginPage() {
     <AuthBox>
       <h1>Login</h1>
       <LoginForm />
-      <p className="text-muted-foreground text-sm">
+      <p className="text-sm text-muted-foreground">
         Don&apos;t have an account?{' '}
         <Link className="text-foreground" href="/register">
           Sign Up Now

@@ -16,7 +16,7 @@ export default async function AuthLayout({ children }: PropsWithChildren) {
 
   return (
     <>
-      <main className="flex-1 my-8">
+      <main className="my-8 flex-1">
         <Section>
           <Container>{children}</Container>
         </Section>

@@ -32,12 +32,10 @@ function ImageMedia({
   src: srcFromProps,
   loading: loadingFromProps,
 }: Props) {
-  let width: number | undefined;
-  let height: number | undefined;
+  let width;
+  let height;
   let alt = altFromProps;
   let src: StaticImageData | string = srcFromProps || '';
-
-  console.log(src,resource)
 
   if (!src && resource && typeof resource === 'object') {
     const { alt: altFromResource, height: fullHeight, url, width: fullWidth } = resource;

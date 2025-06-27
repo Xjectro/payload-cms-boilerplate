@@ -2,7 +2,7 @@
 
 > **Modern, powerful and super fun CMS experience!** 🎉
 
-Hello world! 👋 This is a super powerful boilerplate built with Payload CMS 3.0 and Next.js 15! Everything is ready to get started right away! ✨
+Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.0** and **Next.js 15**! Everything is ready to get started right away! ✨
 
 ## 🌟 Features
 
@@ -19,14 +19,14 @@ Hello world! 👋 This is a super powerful boilerplate built with Payload CMS 3.
 
 ## 🛠️ Technologies
 
-| Technology | Version | Description |
-|-----------|----------|----------|
-| 🚀 **Next.js** | 15.3.3 | React framework |
-| 📦 **Payload CMS** | 3.43.0 | Headless CMS |
-| 🎨 **Tailwind CSS** | 4.1.10 | CSS framework |
-| 🗄️ **PostgreSQL** | - | Database |
-| 🔧 **TypeScript** | 5.7.3 | Type safety |
-| 🎭 **React** | 19.1.0 | UI library |
+| Technology          | Version | Description     |
+| ------------------- | ------- | --------------- |
+| 🚀 **Next.js**      | 15.3.3  | React framework |
+| 📦 **Payload CMS**  | 3.43.0  | Headless CMS    |
+| 🎨 **Tailwind CSS** | 4.1.10  | CSS framework   |
+| 🗄️ **PostgreSQL**   | -       | Database        |
+| 🔧 **TypeScript**   | 5.7.3   | Type safety     |
+| 🎭 **React**        | 19.1.0  | UI library      |
 
 ## 🏁 Quick Start
 
@@ -122,12 +122,12 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   │       └── route.ts           # Health endpoint
 │   ├── 🗂️ collections/            # Payload collections
 │   │   ├── Media/                 # Media collection
-│   │   │   └── index.ts          
+│   │   │   └── index.ts
 │   │   ├── Pages/                 # Pages collection
 │   │   │   ├── helpers.ts         # Page helpers
-│   │   │   └── index.ts          
+│   │   │   └── index.ts
 │   │   └── Users/                 # Users collection
-│   │       └── index.ts          
+│   │       └── index.ts
 │   ├── 🧩 components/             # React components
 │   │   ├── auth/                  # Authentication components
 │   │   │   ├── auth-box.tsx       # Auth box
@@ -209,22 +209,24 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   ├── docker-compose.yml         # Docker Compose
 │   ├── Dockerfile                 # Docker build
 │   ├── eslint.config.mjs          # ESLint settings
+│   ├── next-env.d.ts              # Next.js type definitions
 │   ├── next.config.mjs            # Next.js configuration
 │   ├── package.json               # Project dependencies
+│   ├── postcss.config.mjs         # PostCSS settings
 │   ├── tailwind.config.ts         # Tailwind configuration
-└── 📋 README.md                   # This file
+│   └── tsconfig.json              # TypeScript settings
 ```
 
 ## 🎮 Available Commands
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | 🚀 Start development server |
-| `pnpm build` | 📦 Build for production |
-| `pnpm start` | ▶️ Start production server |
-| `pnpm lint` | 🔍 Check code quality |
-| `pnpm format` | ✨ Format code |
-| `pnpm payload` | ⚡ Payload CLI commands |
+| Command        | Description                 |
+| -------------- | --------------------------- |
+| `pnpm dev`     | 🚀 Start development server |
+| `pnpm build`   | 📦 Build for production     |
+| `pnpm start`   | ▶️ Start production server  |
+| `pnpm lint`    | 🔍 Check code quality       |
+| `pnpm format`  | ✨ Format code              |
+| `pnpm payload` | ⚡ Payload CLI commands     |
 
 ## 🌈 Block Types
 
@@ -245,11 +247,11 @@ This boilerplate includes many pre-built block types:
 
 ## 🌐 API Endpoints
 
-| Endpoint | Description |
-|----------|-------------|
-| `/api/graphql` | 🔗 GraphQL API |
-| `/api/graphql-playground` | 🎮 GraphQL Playground |
-| `/admin` | 🔧 Payload Admin Panel |
+| Endpoint                  | Description            |
+| ------------------------- | ---------------------- |
+| `/api/graphql`            | 🔗 GraphQL API         |
+| `/api/graphql-playground` | 🎮 GraphQL Playground  |
+| `/admin`                  | 🔧 Payload Admin Panel |
 
 ## 🐳 Running with Docker
 

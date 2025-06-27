@@ -12,8 +12,8 @@ type Props = Page['hero'];
 
 function HighImpactHero({ links, media, richText, callToAction }: Props) {
   return (
-    <Section className="bg-accent/30 border-b">
-      <Container className="space-y-6 sm:space-y-12 !text-center">
+    <Section className="border-b bg-accent/30">
+      <Container className="space-y-6 !text-center sm:space-y-12">
         {callToAction && (
           <Badge variant={callToAction.appearance || 'secondary'} asChild>
             <Link href={callToAction.url || '#'} target="_blank" rel="noopener noreferrer">
@@ -25,7 +25,7 @@ function HighImpactHero({ links, media, richText, callToAction }: Props) {
         {richText && <RichText data={richText} />}
 
         {Array.isArray(links) && links.length > 0 && (
-          <div className="flex gap-2 justify-center">
+          <div className="flex justify-center gap-2">
             {links.map(({ link }, i) => (
               <CMSLink key={i} {...link} />
             ))}

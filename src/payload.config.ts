@@ -8,6 +8,9 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import sharp from 'sharp';
 import path from 'path';
 
+sharp.cache(false);
+sharp.concurrency(1);
+
 import { Users } from '@/collections/Users';
 import { Media } from '@/collections/Media';
 import { Pages } from '@/collections/Pages';

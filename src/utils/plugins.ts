@@ -10,7 +10,9 @@ import type { Page } from '@/payload-types';
 import type { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types';
 
 const generateTitle: GenerateTitle<Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | ${process.env.NEXT_PUBLIC_SITE_NAME}` : process.env.NEXT_PUBLIC_SITE_NAME!;
+  return doc?.title
+    ? `${doc.title} | ${process.env.NEXT_PUBLIC_SITE_NAME}`
+    : process.env.NEXT_PUBLIC_SITE_NAME!;
 };
 
 const generateURL: GenerateURL<Page> = ({ doc }) => {

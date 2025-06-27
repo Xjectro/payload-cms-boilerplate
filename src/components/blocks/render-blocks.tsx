@@ -3,31 +3,35 @@ import { ContentBlock } from '@/components/blocks/content-block';
 import { MediaBlock } from '@/components/blocks/media-block';
 import { BannerBlock } from '@/components/blocks/banner-block';
 
-import type { Page } from '@/payload-types';
-
-const blockComponents = {
-  'content-block': ContentBlock,
-  'cta-block': CallToActionBlock,
-  'media-block': MediaBlock,
-  'banner-block': BannerBlock,
-};
+import type {
+  Page,
+  ContentBlock as ContentBlockType,
+  CallToActionBlock as CTABlockType,
+  MediaBlock as MediaBlockType,
+  BannerBlock as BannerBlockType,
+} from '@/payload-types';
 
 function RenderBlocks({ blocks }: { blocks: Page['layout'][0][] }) {
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0;
   if (!hasBlocks) return null;
 
   return blocks.map((block, index) => {
-    const { blockType } = block;
+    const key = block.id ? String(block.id) : `block-${index}`;
 
-    if (blockType && blockType in blockComponents) {
-      const Block = blockComponents[blockType];
-
-      if (Block) {
-        // @ts-ignore
-        return <Block key={index} index={index} {...block} disableInnerContainer />;
+    switch (block.blockType) {
+      case 'content-block':
+        return <ContentBlock key={key} {...(block as ContentBlockType)} />;
+      case 'cta-block':
+        return <CallToActionBlock key={key} {...(block as CTABlockType)} />;
+      case 'media-block':
+        return <MediaBlock key={key} {...(block as MediaBlockType)} />;
+      case 'banner-block': {
+        const { id, ...bannerProps } = block as BannerBlockType;
+        return <BannerBlock key={key} {...bannerProps} id={id || undefined} />;
       }
+      default:
+        return null;
     }
-    return null;
   });
 }
 

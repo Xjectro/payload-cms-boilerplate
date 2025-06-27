@@ -14,14 +14,15 @@ const heroes = {
 
 type Props = Page['hero'];
 
-function RenderHero({ type, ...props }: Props) {
+function RenderHero(props: Props) {
+  const { type } = props;
+
   if (!type || type === 'none') return null;
 
   const HeroToRender = heroes[type];
 
   if (!HeroToRender) return null;
 
-  // @ts-ignore
   return <HeroToRender {...props} />;
 }
 

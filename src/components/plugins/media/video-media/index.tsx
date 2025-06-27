@@ -26,8 +26,6 @@ function VideoMedia({ onClick, resource, videoClassName }: Props) {
   if (resource && typeof resource === 'object') {
     // const { filename } = resource
 
-    console.log(showFallback, 'showFallback');
-
     return (
       <video
         autoPlay

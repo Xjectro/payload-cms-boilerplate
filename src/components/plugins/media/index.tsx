@@ -18,7 +18,11 @@ function Media({ className, htmlElement = 'div', resource, ...props }: Props) {
           }
         : {})}
     >
-      {isVideo ? <VideoMedia {...props} /> : <ImageMedia {...props} />}
+      {isVideo ? (
+        <VideoMedia resource={resource} {...props} />
+      ) : (
+        <ImageMedia resource={resource} {...props} />
+      )}
     </Tag>
   );
 }

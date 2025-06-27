@@ -7,9 +7,11 @@ import { CopyButton } from './copy-button';
 import { Highlight, themes } from 'prism-react-renderer';
 
 import type { ComponentProps } from 'react';
-import type { CodeBlock as CodeBlockProps } from '@/payload-types';
 
-type Props = CodeBlockProps & ComponentProps<'div'>;
+interface Props extends ComponentProps<'div'> {
+  code: string;
+  language?: string;
+}
 
 function CodeBlock({ code, language, className, ...props }: Props) {
   if (!code) return null;
@@ -17,10 +19,10 @@ function CodeBlock({ code, language, className, ...props }: Props) {
     <div className={cn('not-prose', className)} {...props}>
       <Highlight code={code} language={language || ''} theme={themes.vsDark}>
         {({ getLineProps, getTokenProps, tokens }) => (
-          <pre className="bg-black p-4 border text-xs border-border rounded overflow-x-auto">
+          <pre className="overflow-x-auto rounded border border-border bg-black p-4 text-xs">
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ className: 'table-row', line })}>
-                <span className="table-cell select-none text-right text-white/25">{i + 1}</span>
+                <span className="table-cell text-right text-white/25 select-none">{i + 1}</span>
                 <span className="table-cell pl-4">
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token })} />

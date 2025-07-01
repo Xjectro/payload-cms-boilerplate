@@ -92,82 +92,97 @@ Go to `http://localhost:3000` in your browser! 🎯
 📦 payload-cms-boilerplate
 ├── 🎨 src/
 │   ├── 📄 app/                     # Next.js App Router
+│   │   ├── (api)/                 # API routes
+│   │   │   ├── health/            # Health check
+│   │   │   │   └── route.ts       # Health endpoint
+│   │   │   └── next/              # Next.js integration
+│   │   │       ├── exit-preview/  # Preview exit
+│   │   │       │   └── route.ts
+│   │   │       └── preview/       # Preview mode
+│   │   │           └── route.ts
 │   │   ├── (frontend)/            # Frontend application
+│   │   │   ├── layout.tsx         # Frontend main layout
 │   │   │   ├── (auth)/            # Authentication pages
 │   │   │   │   ├── layout.tsx     # Auth layout
 │   │   │   │   ├── login/         # Login page
+│   │   │   │   │   └── page.tsx
 │   │   │   │   └── register/      # Register page
+│   │   │   │       └── page.tsx
 │   │   │   ├── (protected)/       # Protected area
 │   │   │   │   ├── layout.tsx     # Protected layout
 │   │   │   │   └── dashboard/     # Dashboard page
-│   │   │   ├── (site)/            # Main site
-│   │   │   │   ├── layout.tsx     # Site layout
-│   │   │   │   └── page.tsx       # Home page
-│   │   │   ├── [slug]/            # Dynamic pages
-│   │   │   │   └── page.tsx       # Slug page
-│   │   │   └── layout.tsx         # Frontend main layout
-│   │   ├── (payload)/             # Payload admin
-│   │   │   ├── admin/             # Admin panel
-│   │   │   │   ├── importMap.js   # Import map
-│   │   │   │   └── [[...segments]]/
-│   │   │   ├── api/               # API routes
-│   │   │   │   ├── [...slug]/     # Dynamic API
-│   │   │   │   ├── graphql/       # GraphQL endpoint
-│   │   │   │   └── graphql-playground/
-│   │   │   ├── next/              # Next.js integration
-│   │   │   │   └── exit-preview/  # Preview exit
-│   │   │   ├── custom.scss        # Admin custom styles
-│   │   │   └── layout.tsx         # Payload layout
-│   │   └── health/                # Health check
-│   │       └── route.ts           # Health endpoint
+│   │   │   │       └── page.tsx
+│   │   │   └── (public)/          # Public area
+│   │   │       ├── layout.tsx     # Public layout
+│   │   │       ├── page.tsx       # Home page
+│   │   │       └── [slug]/        # Dynamic pages
+│   │   │           └── page.tsx   # Slug page
+│   │   └── (payload)/             # Payload admin
+│   │       ├── layout.tsx         # Payload layout
+│   │       ├── custom.scss        # Admin custom styles
+│   │       ├── admin/             # Admin panel
+│   │       │   ├── importMap.js   # Import map
+│   │       │   └── [[...segments]]/
+│   │       │       ├── not-found.tsx
+│   │       │       └── page.tsx
+│   │       └── api/               # Payload API routes
+│   │           ├── [...slug]/     # Dynamic API
+│   │           │   └── route.ts
+│   │           ├── graphql/       # GraphQL endpoint
+│   │           └── graphql-playground/
 │   ├── 🗂️ collections/            # Payload collections
 │   │   ├── Media/                 # Media collection
 │   │   │   └── index.ts
 │   │   ├── Pages/                 # Pages collection
-│   │   │   ├── helpers.ts         # Page helpers
+│   │   │   ├── hooks.ts           # Page hooks
 │   │   │   └── index.ts
 │   │   └── Users/                 # Users collection
 │   │       └── index.ts
 │   ├── 🧩 components/             # React components
-│   │   ├── auth/                  # Authentication components
-│   │   │   ├── auth-box.tsx       # Auth box
-│   │   │   ├── login-form.tsx     # Login form
-│   │   │   ├── logout-button.tsx  # Logout button
-│   │   │   ├── register-form.tsx  # Register form
-│   │   │   └── submit-button.tsx  # Submit button
-│   │   ├── blocks/                # Content blocks
-│   │   │   ├── banner-block/      # Banner block
-│   │   │   ├── code-block/        # Code block
-│   │   │   ├── content-block/     # Content block
-│   │   │   ├── cta-block/         # CTA block
-│   │   │   ├── media-block/       # Media block
-│   │   │   └── render-blocks.tsx  # Block renderer
-│   │   ├── heroes/                # Hero components
-│   │   │   ├── config.ts          # Hero configuration
-│   │   │   ├── high-impact.tsx    # High impact hero
-│   │   │   ├── low-impact.tsx     # Low impact hero
-│   │   │   ├── medium-impact.tsx  # Medium impact hero
-│   │   │   └── render-hero.tsx    # Hero renderer
-│   │   ├── plugins/               # Plugin components
-│   │   │   ├── link.tsx           # Link component
-│   │   │   ├── live-preview-listener.tsx
-│   │   │   ├── rich-text.tsx      # Rich text
-│   │   │   └── media/             # Media components
-│   │   ├── site/                  # Site components
+│   │   ├── common/                # Common components
 │   │   │   ├── footer.tsx         # Footer
 │   │   │   └── header.tsx         # Header
-│   │   ├── theme/                 # Theme components
-│   │   │   ├── theme-provider.tsx # Theme provider
-│   │   │   └── theme-toggle.tsx   # Theme switcher
-│   │   ├── ui/                    # UI components
-│   │   │   ├── alert.tsx          # Alert component
-│   │   │   ├── badge.tsx          # Badge component
-│   │   │   ├── button.tsx         # Button component
-│   │   │   ├── checkbox.tsx       # Checkbox component
-│   │   │   ├── form.tsx           # Form component
-│   │   │   ├── input.tsx          # Input component
-│   │   │   └── label.tsx          # Label component
-│   │   └── ds.tsx                 # Design system
+│   │   ├── features/              # Feature components
+│   │   │   └── auth/              # Authentication components
+│   │   │       ├── buttons/       # Auth buttons
+│   │   │       └── forms/         # Auth forms
+│   │   ├── payload/               # Payload components
+│   │   │   ├── rich-text.tsx      # Rich text renderer
+│   │   │   ├── blocks/            # Content blocks
+│   │   │   │   ├── render-blocks.tsx # Block renderer
+│   │   │   │   ├── banner-block/  # Banner block
+│   │   │   │   ├── code-block/    # Code block
+│   │   │   │   ├── content-block/ # Content block
+│   │   │   │   ├── cta-block/     # CTA block
+│   │   │   │   └── media-block/   # Media block
+│   │   │   ├── fields/            # Custom field components
+│   │   │   │   ├── link/          # Link field
+│   │   │   │   └── media/         # Media field
+│   │   │   ├── heroes/            # Hero components
+│   │   │   │   ├── config.ts      # Hero configuration
+│   │   │   │   ├── high-impact.tsx # High impact hero
+│   │   │   │   ├── low-impact.tsx # Low impact hero
+│   │   │   │   ├── medium-impact.tsx # Medium impact hero
+│   │   │   │   └── render-hero.tsx # Hero renderer
+│   │   │   └── plugins/           # Plugin components
+│   │   │       └── live-preview-listener.tsx
+│   │   ├── providers/             # Provider components
+│   │   │   └── theme/             # Theme components
+│   │   │       ├── theme-provider.tsx # Theme provider
+│   │   │       └── theme-toggle.tsx # Theme switcher
+│   │   └── ui/                    # UI components
+│   │       ├── design-system.tsx  # Design system
+│   │       ├── forms/             # Form components
+│   │       │   ├── form-box.tsx   # Form box
+│   │       │   └── submit-button.tsx # Submit button
+│   │       └── primitives/        # UI primitives
+│   │           ├── alert.tsx      # Alert component
+│   │           ├── badge.tsx      # Badge component
+│   │           ├── button.tsx     # Button component
+│   │           ├── checkbox.tsx   # Checkbox component
+│   │           ├── form.tsx       # Form component
+│   │           ├── input.tsx      # Input component
+│   │           └── label.tsx      # Label component
 │   ├── 🔗 fields/                 # Payload field types
 │   │   ├── link-group.ts          # Link group field
 │   │   ├── link.ts                # Link field
@@ -180,20 +195,20 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   │   ├── auth.ts                # Authentication
 │   │   └── utils.ts               # General helpers
 │   ├── 🔄 migrations/             # Database migrations
-│   ├── � styles/                 # Global stiller
+│   ├── 🎨 styles/                 # Global styles
 │   │   └── globals.css            # Global CSS
 │   ├── 🛠️ utils/                  # Utility functions
+│   │   ├── plugins.ts             # Plugin configuration
 │   │   ├── helpers/               # Helper functions
 │   │   │   └── generate-preview-path.ts
 │   │   ├── meta/                  # Meta data
 │   │   │   ├── generate-meta.ts   # Meta generator
-│   │   │   └── merge-open-graph.ts # OpenGraph merger
+│   │   │   └── open-graph.ts      # OpenGraph utilities
 │   │   ├── payload-hooks/         # Payload hooks
 │   │   │   ├── access.ts          # Access controls
 │   │   │   └── revalidate-redirects.ts
-│   │   ├── schemas/               # Schema definitions
-│   │   │   └── auth.ts            # Auth schemas
-│   │   └── plugins.ts             # Plugin configuration
+│   │   └── validations/           # Validation schemas
+│   │       └── auth.ts            # Auth validations
 │   ├── payload-types.ts           # Payload type definitions
 │   └── payload.config.ts          # Payload configuration
 ├── 🖼️ public/                     # Static files
@@ -202,17 +217,13 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   └── media/                     # Media files
 ├── ⚙️ Config Files
 │   ├── .env                       # Environment variables
-│   ├── .gitignore                 # Git ignore
-│   ├── .npmrc                     # NPM configuration
 │   ├── .prettierrc.json           # Prettier settings
 │   ├── components.json            # Shadcn/ui config
 │   ├── docker-compose.yml         # Docker Compose
 │   ├── Dockerfile                 # Docker build
 │   ├── eslint.config.mjs          # ESLint settings
-│   ├── next-env.d.ts              # Next.js type definitions
 │   ├── next.config.mjs            # Next.js configuration
 │   ├── package.json               # Project dependencies
-│   ├── postcss.config.mjs         # PostCSS settings
 │   ├── tailwind.config.ts         # Tailwind configuration
 │   └── tsconfig.json              # TypeScript settings
 ```

@@ -1,4 +1,4 @@
-import { mergeOpenGraph } from '@/utils/meta/merge-open-graph';
+import { mergeOpenGraph } from '@/utils/meta/open-graph';
 
 import type { Metadata } from 'next';
 import type { Page } from '@/payload-types';

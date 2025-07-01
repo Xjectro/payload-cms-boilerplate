@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 
 import { Geist as FontSans } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme/theme-provider';
+import { ThemeProvider } from '@/components/providers/theme/theme-provider';
 import { Analytics } from '@vercel/analytics/next';
 
 import { cn } from '@/lib/utils';

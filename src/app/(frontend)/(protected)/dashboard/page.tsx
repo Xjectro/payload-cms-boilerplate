@@ -1,13 +1,13 @@
-import { Section, Container } from '@/components/ds';
+import { Section, Container } from '@/components/ui/design-system';
 import { User as UserIcon } from 'lucide-react';
-import { LogoutButton } from '@/components/auth/logout-button';
+import { LogoutButton } from '@/components/features/auth/buttons/logout-button';
 
 import { redirect } from 'next/navigation';
 import { getUser } from '@/lib/auth';
 
 import type { User } from '@/payload-types';
 
-export default async function Admin() {
+export default async function Page() {
   const user: User | null = await getUser();
 
   if (!user) {

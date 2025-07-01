@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation';
 import { getUser } from '@/lib/auth';
 
-import { Footer } from '@/components/site/footer';
-import { Container, Section } from '@/components/ds';
+import { Footer } from '@/components/common/footer';
+import { Container, Section } from '@/components/ui/design-system';
 
 import type { User } from '@/payload-types';
 import type { PropsWithChildren } from 'react';

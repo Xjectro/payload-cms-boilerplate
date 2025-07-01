@@ -1,4 +1,4 @@
-import { link } from './link';
+import { link } from '@//fields/link';
 
 import type { ArrayField, Field } from 'payload';
 import type { LinkAppearances } from '@/fields/link';

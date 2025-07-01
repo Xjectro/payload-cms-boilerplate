@@ -1,11 +1,11 @@
-import { RegisterForm } from '@/components/auth/register-form';
-import { AuthBox } from '@/components/auth/auth-box';
+import { RegisterForm } from '@/components/features/auth/forms/register-form';
+import { FormBox } from '@/components/ui/forms/form-box';
 
 import Link from 'next/link';
 
 export default async function RegisterPage() {
   return (
-    <AuthBox>
+    <FormBox>
       <h1>Sign Up</h1>
       <RegisterForm />
       <p className="text-sm text-muted-foreground">
@@ -14,6 +14,6 @@ export default async function RegisterPage() {
           Login Now
         </Link>
       </p>
-    </AuthBox>
+    </FormBox>
   );
 }

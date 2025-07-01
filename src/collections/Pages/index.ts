@@ -8,16 +8,16 @@ import {
 
 import { slugField } from '@/fields/slug';
 import { generatePreviewPath } from '@/utils/helpers/generate-preview-path';
-import { revalidateDelete, revalidatePage, populatePublishedAt } from '@/collections/Pages/helpers';
+import { revalidateDelete, revalidatePage, populatePublishedAt } from '@/collections/Pages/hooks';
 
 import { admin, anyone } from '@/utils/payload-hooks/access';
 
-import { HeroConfig } from '@/components/heroes/config';
+import { HeroConfig } from '@/components/payload/heroes/config';
 
-import { MediaBlockConfig } from '@/components/blocks/media-block/config';
-import { ContentBlockConfig } from '@/components/blocks/content-block/config';
-import { CallToActionBlockConfig } from '@/components/blocks/cta-block/config';
-import { BannerBlockConfig } from '@/components/blocks/banner-block/config';
+import { MediaBlockConfig } from '@/components/payload/blocks/media-block/config';
+import { ContentBlockConfig } from '@/components/payload/blocks/content-block/config';
+import { CallToActionBlockConfig } from '@/components/payload/blocks/cta-block/config';
+import { BannerBlockConfig } from '@/components/payload/blocks/banner-block/config';
 
 import type { CollectionConfig } from 'payload';
 

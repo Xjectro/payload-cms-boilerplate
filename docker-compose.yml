@@ -1,7 +1,4 @@
-networks:
-  network:
-    driver: bridge
-    external: false
+version: '3'
 
 services:
   payload:
@@ -14,31 +11,22 @@ services:
     working_dir: /home/node/app/
     command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
     env_file:
-      - .env
-    networks:
-      - network
+      - .env.docker
 
   postgres:
-    image: postgres:17.2-alpine
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: B100dy50.waf!
-      POSTGRES_DB: db
+    restart: always
+    image: postgres:15-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data
-    networks:
-      - network
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres -d db']
-      interval: 5s
-      timeout: 5s
-      retries: 5
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: payload
 
 volumes:
-  data:
   pgdata:
   node_modules:

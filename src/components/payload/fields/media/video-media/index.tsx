@@ -11,7 +11,7 @@ type Props = MediaProps;
 
 function VideoMedia({ onClick, resource, videoClassName }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [showFallback, setShowFallback] = useState<boolean>();
+  const [_, setShowFallback] = useState<boolean>();
 
   useEffect(() => {
     const { current: video } = videoRef;

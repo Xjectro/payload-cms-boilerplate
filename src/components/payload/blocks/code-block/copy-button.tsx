@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/primitives/button';
-import { CopyIcon } from '@payloadcms/ui/icons/Copy';
+import { CopyIcon } from 'lucide-react';
 
 export function CopyButton({ code }: { code: string }) {
   const [text, setText] = useState('Copy');

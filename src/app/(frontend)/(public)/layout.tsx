@@ -2,6 +2,8 @@ import { Footer } from '@/components/common/footer';
 import { Header } from '@/components/common/header';
 import { Main } from '@/components/ui/design-system';
 
+export const dynamic = 'force-dynamic';
+
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <>

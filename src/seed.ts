@@ -1,5 +1,5 @@
 import { getPayload } from 'payload';
-import config from './payload.config';
+import config from '@/payload.config';
 
 const run = async () => {
   const payload = await getPayload({ config });
@@ -7,7 +7,7 @@ const run = async () => {
   await payload.create({
     collection: 'users',
     data: {
-      email: 'test@gmail.com',
+      email: 'admin@gmail.com',
       password: 'password123',
       role: 'admin',
     },

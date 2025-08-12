@@ -47,7 +47,7 @@
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "graphql": "^16.11.0",
     "lucide-react": "^0.474.0",
     "next": "15.3.3",

@@ -1,0 +1,66 @@
+name: Deploy to Production
+on:
+  workflow_dispatch:
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: ${{ github.workflow }}
+      cancel-in-progress: true
+
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare deployment files
+        run: |
+          rm -rf .git
+          rm -rf .github
+          rm -rf .vscode
+          rm -rf .next
+          rm -rf node_modules
+          rm -rf package-lock.json
+          rm -rf .env
+
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file-action@v1
+        with:
+          ENV_SITE_TITLE: ${{ secrets.SITE_TITLE }}
+          ENV_SITE_URL: ${{ secrets.SITE_URL }}
+          ENV_API_URL: ${{ secrets.API_URL }}
+          ENV_NEXT_PUBLIC_SITE_TITLE: ${{ secrets.SITE_TITLE }}
+          ENV_NEXT_PUBLIC_SITE_URL: ${{ secrets.SITE_URL }}
+          ENV_NEXT_PUBLIC_API_URL: ${{ secrets.API_URL }}
+
+      - name: Upload Files
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ secrets.REMOTE_USER }}
+          server: ${{ secrets.REMOTE_HOST }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          local_path: './'
+          remote_path: '/var/www/your-domain'
+
+      - name: Build and deploy Calvero with PM2
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e  # Exit on any error
+            echo "Navigating to Calvero directory..."
+            cd /var/www/your-domain
+
+            echo "Installing dependencies..."
+            npm install
+
+            echo "Building the application..."
+            npm run build
+
+            echo "Restarting PM2 process..."
+            pm2 reload your-domain || pm2 start ecosystem.config.cjs --only your-domain
+
+            echo "Calvero deployment completed successfully!"

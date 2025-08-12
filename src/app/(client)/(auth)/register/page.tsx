@@ -3,7 +3,7 @@ import { FormBox } from '@/components/ui/forms/form-box';
 
 import Link from 'next/link';
 
-export default async function RegisterPage() {
+export default async function Page() {
   return (
     <FormBox>
       <h1>Sign Up</h1>

@@ -21,7 +21,7 @@ Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 
 
 | Technology          | Version | Description     |
 | ------------------- | ------- | --------------- | ---------------------------------------------------------------------------- |
-| 🚀 **Next.js**      | 16.0.3  | React framework | // But we are use next.js 15 because payload cms not give next.js 16 version |
+| 🚀 **Next.js**      | 16.0.3  | React framework | 
 | 📦 **Payload CMS**  | 3.43.0  | Headless CMS    |
 | 🎨 **Tailwind CSS** | 4.1.10  | CSS framework   |
 | 🗄️ **PostgreSQL**   | -       | Database        |

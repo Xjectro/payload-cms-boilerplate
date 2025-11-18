@@ -37,7 +37,7 @@ function VideoMedia({ onClick, resource, videoClassName }: Props) {
         playsInline
         ref={videoRef}
       >
-        <source src={`${process.env.NEXT_PUBLIC_SITE_URL}${resource.url}`} />
+        <source src={`${process.env.NEXT_PUBLIC_APP_URL}${resource.url}`} />
       </video>
     );
   }

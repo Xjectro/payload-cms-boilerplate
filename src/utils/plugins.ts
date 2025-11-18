@@ -11,12 +11,12 @@ import type { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types';
 
 const generateTitle: GenerateTitle<Page> = ({ doc }) => {
   return doc?.title
-    ? `${doc.title} | ${process.env.NEXT_PUBLIC_SITE_NAME}`
-    : process.env.NEXT_PUBLIC_SITE_NAME!;
+    ? `${doc.title} | ${process.env.NEXT_PUBLIC_APP_TITLE}`
+    : process.env.NEXT_PUBLIC_APP_TITLE!;
 };
 
 const generateURL: GenerateURL<Page> = ({ doc }) => {
-  const url = process.env.NEXT_PUBLIC_SITE_URL || '';
+  const url = process.env.NEXT_PUBLIC_APP_URL || '';
   if (doc?.slug) {
     return `${url}/${doc.slug}`;
   }

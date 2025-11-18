@@ -46,7 +46,7 @@ function ImageMedia({
 
     const cacheTag = resource.updatedAt;
 
-    src = `${process.env.NEXT_PUBLIC_SITE_URL}${url}?${cacheTag}`;
+    src = `${process.env.NEXT_PUBLIC_APP_URL}${url}?${cacheTag}`;
   }
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined);

@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  siteName: process.env.NEXT_PUBLIC_SITE_NAME,
-  title: process.env.NEXT_PUBLIC_SITE_NAME,
-  images: [`${process.env.NEXT_PUBLIC_SITE_URL}/opengraph-image.webp`],
+  siteName: process.env.NEXT_PUBLIC_APP_TITLE,
+  title: process.env.NEXT_PUBLIC_APP_TITLE,
+  images: [`${process.env.NEXT_PUBLIC_APP_URL}/opengraph-image.webp`],
 };
 
 export const mergeOpenGraph = (og?: Metadata['openGraph']): Metadata['openGraph'] => {

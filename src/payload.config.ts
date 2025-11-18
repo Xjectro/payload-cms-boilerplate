@@ -55,7 +55,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   //
   secret: process.env.PAYLOAD_SECRET || '',
-  cors: [process.env.SITE_URL!],
+  cors: [process.env.APP_URL!],
   //
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
@@ -63,7 +63,7 @@ export default buildConfig({
   //
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      connectionString: process.env.DATABASE_URL || '',
     },
   }),
   //

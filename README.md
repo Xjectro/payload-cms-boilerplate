@@ -2,7 +2,7 @@
 
 > **Modern, powerful and super fun CMS experience!** 🎉
 
-Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.0** and **Next.js 15**! Everything is ready to get started right away! ✨
+Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.64.0** and **Next.js 15**! Everything is ready to get started right away! ✨
 
 ## 🌟 Features
 
@@ -20,8 +20,8 @@ Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 
 ## 🛠️ Technologies
 
 | Technology          | Version | Description     |
-| ------------------- | ------- | --------------- |
-| 🚀 **Next.js**      | 15.3.3  | React framework |
+| ------------------- | ------- | --------------- | ---------------------------------------------------------------------------- |
+| 🚀 **Next.js**      | 16.0.3  | React framework | // But we are use next.js 15 because payload cms not give next.js 16 version |
 | 📦 **Payload CMS**  | 3.43.0  | Headless CMS    |
 | 🎨 **Tailwind CSS** | 4.1.10  | CSS framework   |
 | 🗄️ **PostgreSQL**   | -       | Database        |
@@ -53,19 +53,19 @@ Create a `.env.local` file and add the required variables:
 
 ```env
 # Database Configuration
-DATABASE_URI=postgres://postgres:B100dy50.waf!@127.0.0.1:5432/this-is-my-test-db
+DATABASE_URL=postgres://postgres:B100dy50.waf!@127.0.0.1:5432/this-is-my-test-db
 
 # Application Secrets
 PAYLOAD_SECRET=YOUR_SECRET_HERE
 PREVIEW_SECRET=your_preview_secret_here
 
 # Site
-SITE_URL=http://localhost:3000
-SITE_NAME=Your Site Name
+APP_URL=http://localhost:3000
+APP_TITLE=Your Site Name
 
 # Environment Variables for Next.js
-NEXT_PUBLIC_SITE_URL=${SITE_URL}
-NEXT_PUBLIC_SITE_NAME=${SITE_NAME}
+NEXT_PUBLIC_APP_URL=${APP_URL}
+NEXT_PUBLIC_APP_TITLE=${APP_TITLE}
 ```
 
 ### 4. 🗄️ Setup Database

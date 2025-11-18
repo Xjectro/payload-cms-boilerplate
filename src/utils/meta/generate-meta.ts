@@ -7,8 +7,8 @@ export const generateMeta = async (args: { doc: Partial<Page> | null }): Promise
   const { doc } = args;
 
   const title = doc?.meta?.title
-    ? `${doc?.meta?.title} · ${process.env.NEXT_PUBLIC_SITE_NAME}`
-    : process.env.NEXT_PUBLIC_SITE_NAME;
+    ? `${doc?.meta?.title} · ${process.env.NEXT_PUBLIC_APP_TITLE}`
+    : process.env.NEXT_PUBLIC_APP_TITLE;
 
   return {
     description: doc?.meta?.description,

@@ -2,7 +2,7 @@
 
 > **Modern, powerful and super fun CMS experience!** 🎉
 
-Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.64.0** and **Next.js 15**! Everything is ready to get started right away! ✨
+Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.64.0** and **Next.js 16**! Everything is ready to get started right away! ✨
 
 ## 🌟 Features
 
@@ -20,7 +20,7 @@ Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 
 ## 🛠️ Technologies
 
 | Technology          | Version | Description     |
-| ------------------- | ------- | --------------- | ---------------------------------------------------------------------------- |
+| ------------------- | ------- | --------------- |
 | 🚀 **Next.js**      | 16.0.3  | React framework | 
 | 📦 **Payload CMS**  | 3.43.0  | Headless CMS    |
 | 🎨 **Tailwind CSS** | 4.1.10  | CSS framework   |
@@ -219,10 +219,7 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   ├── .env                       # Environment variables
 │   ├── .prettierrc.json           # Prettier settings
 │   ├── components.json            # Shadcn/ui config
-│   ├── docker-compose.yml         # Docker Compose
-│   ├── Dockerfile                 # Docker build
-│   ├── eslint.config.mjs          # ESLint settings
-│   ├── next.config.mjs            # Next.js configuration
+│   ├── next.config.ts            # Next.js configuration
 │   ├── package.json               # Project dependencies
 │   ├── tailwind.config.ts         # Tailwind configuration
 │   └── tsconfig.json              # TypeScript settings
@@ -264,16 +261,6 @@ This boilerplate includes many pre-built block types:
 | `/api/graphql-playground` | 🎮 GraphQL Playground  |
 | `/admin`                  | 🔧 Payload Admin Panel |
 
-## 🐳 Running with Docker
-
-```bash
-# Start all services
-docker-compose up -d
-
-# Start only the database
-docker-compose up -d postgres
-```
-
 ## 🚀 Deployment
 
 ### Deploy to Vercel
@@ -283,16 +270,6 @@ docker-compose up -d postgres
 vercel deploy
 
 # or push to GitHub, auto deploy! 🎉
-```
-
-### Deploy with Docker
-
-```bash
-# Build image
-docker build -t payload-cms-app .
-
-# Run
-docker run -p 3000:3000 payload-cms-app
 ```
 
 ## 🤝 Contributing

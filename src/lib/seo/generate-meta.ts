@@ -1,4 +1,4 @@
-import { mergeOpenGraph } from '@/utils/meta/open-graph';
+import { mergeOpenGraph } from '@/lib/seo/open-graph';
 
 import type { Metadata } from 'next';
 import type { Page } from '@/payload-types';
@@ -7,8 +7,8 @@ export const generateMeta = async (args: { doc: Partial<Page> | null }): Promise
   const { doc } = args;
 
   const title = doc?.meta?.title
-    ? `${doc?.meta?.title} · ${process.env.NEXT_PUBLIC_APP_TITLE}`
-    : process.env.NEXT_PUBLIC_APP_TITLE;
+    ? `${doc?.meta?.title} · ${process.env.NEXT_PUBLIC_TITLE}`
+    : process.env.NEXT_PUBLIC_TITLE;
 
   return {
     description: doc?.meta?.description,

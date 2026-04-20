@@ -5,11 +5,11 @@ import { Footer } from '@/components/common/footer';
 import { Container, Section } from '@/components/ui/design-system';
 
 import type { User } from '@/payload-types';
-import type { PropsWithChildren } from 'react';
+import { Fragment, type PropsWithChildren } from 'react';
 
 export const dynamic = 'force-dynamic';
 
-export default async function AuthLayout({ children }: PropsWithChildren) {
+export default async function AuthTemplate({ children }: PropsWithChildren) {
   const user: User | null = await getUser();
 
   if (user) {
@@ -17,13 +17,13 @@ export default async function AuthLayout({ children }: PropsWithChildren) {
   }
 
   return (
-    <>
+    <Fragment>
       <main className="my-8 flex-1">
         <Section>
           <Container>{children}</Container>
         </Section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 }

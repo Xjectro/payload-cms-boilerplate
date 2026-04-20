@@ -5,7 +5,7 @@ import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
 
 export function Footer() {
-  const siteUrl = new URL(process.env.NEXT_PUBLIC_APP_URL!);
+  const siteUrl = new URL(process.env.NEXT_PUBLIC_URL!);
   return (
     <footer className="bottom-0 border-t bg-accent/30">
       <Section>

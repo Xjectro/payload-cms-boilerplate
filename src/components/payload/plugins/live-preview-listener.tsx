@@ -7,7 +7,5 @@ import { RefreshRouteOnSave as PayloadLivePreview } from '@payloadcms/live-previ
 
 export function LivePreviewListener() {
   const router = useRouter();
-  return (
-    <PayloadLivePreview refresh={router.refresh} serverURL={process.env.NEXT_PUBLIC_APP_URL!} />
-  );
+  return <PayloadLivePreview refresh={router.refresh} serverURL={process.env.NEXT_PUBLIC_URL!} />;
 }

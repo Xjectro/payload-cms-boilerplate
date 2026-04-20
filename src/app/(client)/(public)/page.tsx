@@ -1,11 +1,19 @@
 import { Section, Container, Prose } from '@/components/ui/design-system';
 import { Button } from '@/components/ui/primitives/button';
 import { Check } from 'lucide-react';
+import { buildWebSiteJsonLd, buildOrganizationJsonLd, jsonLdScriptProps } from '@/lib/seo';
 
 import Link from 'next/link';
+import { Fragment } from 'react';
 
 export default async function Page() {
-  return <ToDelete />;
+  return (
+    <Fragment>
+      <script {...jsonLdScriptProps(buildWebSiteJsonLd())} />
+      <script {...jsonLdScriptProps(buildOrganizationJsonLd())} />
+      <ToDelete />
+    </Fragment>
+  );
 }
 
 function ToDelete() {

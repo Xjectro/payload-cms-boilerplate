@@ -7,7 +7,7 @@ import React, { cache } from 'react';
 
 import { RenderBlocks } from '@/components/payload/blocks/render-blocks';
 import { RenderHero } from '@/components/payload/heroes/render-hero';
-import { generateMeta } from '@/utils/meta/generate-meta';
+import { generateMeta } from '@/lib/seo';
 import { LivePreviewListener } from '@/components/payload/plugins/live-preview-listener';
 import { redirect } from 'next/navigation';
 

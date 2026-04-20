@@ -6,7 +6,7 @@ import type { PropsWithChildren } from 'react';
 
 export const dynamic = 'force-dynamic';
 
-export default async function ProtectedLayout({ children }: PropsWithChildren) {
+export default async function ProtectedTemplate({ children }: PropsWithChildren) {
   const user: User | null = await getUser();
 
   if (!user) {

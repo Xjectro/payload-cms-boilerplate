@@ -21,7 +21,7 @@ Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 
 
 | Technology          | Version | Description     |
 | ------------------- | ------- | --------------- |
-| 🚀 **Next.js**      | 16.0.3  | React framework | 
+| 🚀 **Next.js**      | 16.0.3  | React framework |
 | 📦 **Payload CMS**  | 3.43.0  | Headless CMS    |
 | 🎨 **Tailwind CSS** | 4.1.10  | CSS framework   |
 | 🗄️ **PostgreSQL**   | -       | Database        |
@@ -64,8 +64,8 @@ APP_URL=http://localhost:3000
 APP_TITLE=Your Site Name
 
 # Environment Variables for Next.js
-NEXT_PUBLIC_APP_URL=${APP_URL}
-NEXT_PUBLIC_APP_TITLE=${APP_TITLE}
+NEXT_PUBLIC_URL=${APP_URL}
+NEXT_PUBLIC_TITLE=${APP_TITLE}
 ```
 
 ### 4. 🗄️ Setup Database

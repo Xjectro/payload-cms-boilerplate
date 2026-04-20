@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation';
 import { getUser } from '@/lib/auth';
 
 import type { User } from '@/payload-types';
+import { Fragment } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,7 +23,7 @@ export default async function Page() {
   const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24));
 
   return (
-    <>
+    <Fragment>
       <Section>
         <Container>
           <div className="mb-8 flex items-center justify-between">
@@ -59,7 +60,7 @@ export default async function Page() {
           </div>
         </Container>
       </Section>
-    </>
+    </Fragment>
   );
 }
 

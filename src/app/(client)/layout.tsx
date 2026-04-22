@@ -1,10 +1,10 @@
 import '@/styles/globals.css';
 
 import { Geist as FontSans } from 'next/font/google';
-import { ThemeProvider } from '@/components/providers/theme/theme-provider';
+import { ThemeProvider } from '@/shared/providers/theme/theme-provider';
 import { Analytics } from '@vercel/analytics/next';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 const fontSans = FontSans({
   subsets: ['latin'],

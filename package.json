@@ -10,7 +10,7 @@
     "payload": "payload",
     "start": "next start",
     "seed": "dotenv -- tsx src/seed.ts",
-    "format": "prettier --write .",
+    "format": "prettier --write ./src",
     "lint": "next lint"
   },
   "pnpm": {

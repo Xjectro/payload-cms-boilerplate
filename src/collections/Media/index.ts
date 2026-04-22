@@ -1,6 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { admin, anyone } from '@/utils/payload-hooks/access';
+import { admin, anyone } from '@/features/payload/utils/payload-hooks/access';
 
 import type { CollectionConfig } from 'payload';
 

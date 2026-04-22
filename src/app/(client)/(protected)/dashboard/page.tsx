@@ -1,9 +1,9 @@
-import { Section, Container } from '@/components/ui/design-system';
+import { Section, Container } from '@/shared/ui/design-system';
 import { User as UserIcon } from 'lucide-react';
-import { LogoutButton } from '@/components/features/auth/buttons/logout-button';
+import { LogoutButton } from '@/features/auth/components/buttons/logout-button';
 
 import { redirect } from 'next/navigation';
-import { getUser } from '@/lib/auth';
+import { getUser } from '@/shared/lib/auth';
 
 import type { User } from '@/payload-types';
 import { Fragment } from 'react';

@@ -1,6 +1,6 @@
-import { Footer } from '@/components/common/footer';
-import { Header } from '@/components/common/header';
-import { Main } from '@/components/ui/design-system';
+import { Footer } from '@/features/common/components/footer';
+import { Header } from '@/features/common/components/header';
+import { Main } from '@/shared/ui/design-system';
 import { Fragment } from 'react';
 
 export const dynamic = 'force-dynamic';

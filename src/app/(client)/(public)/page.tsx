@@ -1,7 +1,7 @@
-import { Section, Container, Prose } from '@/components/ui/design-system';
-import { Button } from '@/components/ui/primitives/button';
+import { Section, Container, Prose } from '@/shared/ui/design-system';
+import { Button } from '@/shared/ui/primitives/button';
 import { Check } from 'lucide-react';
-import { buildWebSiteJsonLd, buildOrganizationJsonLd, jsonLdScriptProps } from '@/lib/seo';
+import { buildWebSiteJsonLd, buildOrganizationJsonLd, jsonLdScriptProps } from '@/shared/lib/seo';
 
 import Link from 'next/link';
 import { Fragment } from 'react';

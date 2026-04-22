@@ -1,5 +1,5 @@
-import { LoginForm } from '@/components/features/auth/forms/login-form';
-import { FormBox } from '@/components/ui/forms/form-box';
+import { LoginForm } from '@/features/auth/components/forms/login-form';
+import { FormBox } from '@/shared/ui/forms/form-box';
 
 import Link from 'next/link';
 

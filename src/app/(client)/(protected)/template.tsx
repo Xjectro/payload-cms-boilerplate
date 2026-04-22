@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { getUser } from '@/lib/auth';
+import { getUser } from '@/shared/lib/auth';
 
 import type { User } from '@/payload-types';
 import type { PropsWithChildren } from 'react';

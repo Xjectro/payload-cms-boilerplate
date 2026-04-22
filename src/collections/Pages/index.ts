@@ -7,17 +7,17 @@ import {
 } from '@payloadcms/plugin-seo/fields';
 
 import { slugField } from '@/fields/slug';
-import { generatePreviewPath } from '@/utils/helpers/generate-preview-path';
+import { generatePreviewPath } from '@/features/payload/utils/helpers/generate-preview-path';
 import { revalidateDelete, revalidatePage, populatePublishedAt } from '@/collections/Pages/hooks';
 
-import { admin, anyone } from '@/utils/payload-hooks/access';
+import { admin, anyone } from '@/features/payload/utils/payload-hooks/access';
 
-import { HeroConfig } from '@/components/payload/heroes/config';
+import { HeroConfig } from '@/features/payload/components/heroes/config';
 
-import { MediaBlockConfig } from '@/components/payload/blocks/media-block/config';
-import { ContentBlockConfig } from '@/components/payload/blocks/content-block/config';
-import { CallToActionBlockConfig } from '@/components/payload/blocks/cta-block/config';
-import { BannerBlockConfig } from '@/components/payload/blocks/banner-block/config';
+import { MediaBlockConfig } from '@/features/payload/components/blocks/media-block/config';
+import { ContentBlockConfig } from '@/features/payload/components/blocks/content-block/config';
+import { CallToActionBlockConfig } from '@/features/payload/components/blocks/cta-block/config';
+import { BannerBlockConfig } from '@/features/payload/components/blocks/banner-block/config';
 
 import type { CollectionConfig } from 'payload';
 

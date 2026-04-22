@@ -5,10 +5,10 @@ import { getPayload } from 'payload';
 import { draftMode } from 'next/headers';
 import React, { cache } from 'react';
 
-import { RenderBlocks } from '@/components/payload/blocks/render-blocks';
-import { RenderHero } from '@/components/payload/heroes/render-hero';
-import { generateMeta } from '@/lib/seo';
-import { LivePreviewListener } from '@/components/payload/plugins/live-preview-listener';
+import { RenderBlocks } from '@/features/payload/components/blocks/render-blocks';
+import { RenderHero } from '@/features/payload/components/heroes/render-hero';
+import { generateMeta } from '@/shared/lib/seo';
+import { LivePreviewListener } from '@/features/payload/components/plugins/live-preview-listener';
 import { redirect } from 'next/navigation';
 
 export async function generateStaticParams() {

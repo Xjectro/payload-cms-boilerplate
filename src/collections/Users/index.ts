@@ -1,4 +1,4 @@
-import { admin, anyone } from '@/utils/payload-hooks/access';
+import { admin, anyone } from '@/features/payload/utils/payload-hooks/access';
 
 import type { CollectionConfig } from 'payload';
 

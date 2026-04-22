@@ -14,7 +14,7 @@ sharp.concurrency(1);
 import { Users } from '@/collections/Users';
 import { Media } from '@/collections/Media';
 import { Pages } from '@/collections/Pages';
-import { plugins } from '@/utils/plugins';
+import { plugins } from '@/features/payload/utils/plugins';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

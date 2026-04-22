@@ -2,7 +2,7 @@
 
 > **Modern, powerful and super fun CMS experience!** 🎉
 
-Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.64.0** and **Next.js 16**! Everything is ready to get started right away! ✨
+Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.83.0** and **Next.js 16**! Everything is ready to get started right away! ✨
 
 ## 🌟 Features
 
@@ -21,12 +21,12 @@ Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 
 
 | Technology          | Version | Description     |
 | ------------------- | ------- | --------------- |
-| 🚀 **Next.js**      | 16.0.3  | React framework |
-| 📦 **Payload CMS**  | 3.43.0  | Headless CMS    |
-| 🎨 **Tailwind CSS** | 4.1.10  | CSS framework   |
+| 🚀 **Next.js**      | 16.2.4  | React framework |
+| 📦 **Payload CMS**  | 3.83.0  | Headless CMS    |
+| 🎨 **Tailwind CSS** | 4.2.2   | CSS framework   |
 | 🗄️ **PostgreSQL**   | -       | Database        |
-| 🔧 **TypeScript**   | 5.7.3   | Type safety     |
-| 🎭 **React**        | 19.1.0  | UI library      |
+| 🔧 **TypeScript**   | 6.0.3   | Type safety     |
+| 🎭 **React**        | 19.2.5  | UI library      |
 
 ## 🏁 Quick Start
 
@@ -91,138 +91,139 @@ Go to `http://localhost:3000` in your browser! 🎯
 ```
 📦 payload-cms-boilerplate
 ├── 🎨 src/
-│   ├── 📄 app/                     # Next.js App Router
-│   │   ├── (api)/                 # API routes
-│   │   │   ├── health/            # Health check
-│   │   │   │   └── route.ts       # Health endpoint
-│   │   │   └── next/              # Next.js integration
-│   │   │       ├── exit-preview/  # Preview exit
+│   ├── 📄 app/                        # Next.js App Router
+│   │   ├── (api)/                     # API routes
+│   │   │   ├── health/                # Health check endpoint
+│   │   │   │   └── route.ts
+│   │   │   └── next/                  # Next.js integration
+│   │   │       ├── exit-preview/      # Exit preview mode
 │   │   │       │   └── route.ts
-│   │   │       └── preview/       # Preview mode
+│   │   │       └── preview/           # Enter preview mode
 │   │   │           └── route.ts
-│   │   ├── (frontend)/            # Frontend application
-│   │   │   ├── layout.tsx         # Frontend main layout
-│   │   │   ├── (auth)/            # Authentication pages
-│   │   │   │   ├── layout.tsx     # Auth layout
-│   │   │   │   ├── login/         # Login page
+│   │   ├── (client)/                  # Client-side application
+│   │   │   ├── layout.tsx             # Root client layout
+│   │   │   ├── (auth)/                # Authentication pages
+│   │   │   │   ├── template.tsx       # Auth template
+│   │   │   │   ├── login/             # Login page
 │   │   │   │   │   └── page.tsx
-│   │   │   │   └── register/      # Register page
+│   │   │   │   └── register/          # Register page
 │   │   │   │       └── page.tsx
-│   │   │   ├── (protected)/       # Protected area
-│   │   │   │   ├── layout.tsx     # Protected layout
-│   │   │   │   └── dashboard/     # Dashboard page
+│   │   │   ├── (protected)/           # Authenticated-only area
+│   │   │   │   ├── template.tsx       # Protected template
+│   │   │   │   └── dashboard/         # Dashboard
 │   │   │   │       └── page.tsx
-│   │   │   └── (public)/          # Public area
-│   │   │       ├── layout.tsx     # Public layout
-│   │   │       ├── page.tsx       # Home page
-│   │   │       └── [slug]/        # Dynamic pages
-│   │   │           └── page.tsx   # Slug page
-│   │   └── (payload)/             # Payload admin
-│   │       ├── layout.tsx         # Payload layout
-│   │       ├── custom.scss        # Admin custom styles
-│   │       ├── admin/             # Admin panel
-│   │       │   ├── importMap.js   # Import map
+│   │   │   └── (public)/              # Publicly accessible area
+│   │   │       ├── template.tsx       # Public template
+│   │   │       ├── page.tsx           # Home page
+│   │   │       └── [slug]/            # Dynamic pages
+│   │   │           └── page.tsx
+│   │   └── (payload)/                 # Payload CMS admin
+│   │       ├── layout.tsx             # Admin layout
+│   │       ├── custom.scss            # Admin custom styles
+│   │       ├── admin/                 # Admin panel
+│   │       │   ├── importMap.js       # Import map
 │   │       │   └── [[...segments]]/
 │   │       │       ├── not-found.tsx
 │   │       │       └── page.tsx
-│   │       └── api/               # Payload API routes
-│   │           ├── [...slug]/     # Dynamic API
+│   │       └── api/                   # Payload API routes
+│   │           ├── [...slug]/         # Dynamic API
 │   │           │   └── route.ts
-│   │           ├── graphql/       # GraphQL endpoint
+│   │           ├── graphql/           # GraphQL endpoint
 │   │           └── graphql-playground/
-│   ├── 🗂️ collections/            # Payload collections
-│   │   ├── Media/                 # Media collection
+│   ├── 🗂️ collections/               # Payload collections
+│   │   ├── Media/                     # Media collection
 │   │   │   └── index.ts
-│   │   ├── Pages/                 # Pages collection
-│   │   │   ├── hooks.ts           # Page hooks
+│   │   ├── Pages/                     # Pages collection
+│   │   │   ├── hooks.ts               # Page hooks
 │   │   │   └── index.ts
-│   │   └── Users/                 # Users collection
+│   │   └── Users/                     # Users collection
 │   │       └── index.ts
-│   ├── 🧩 components/             # React components
-│   │   ├── common/                # Common components
-│   │   │   ├── footer.tsx         # Footer
-│   │   │   └── header.tsx         # Header
-│   │   ├── features/              # Feature components
-│   │   │   └── auth/              # Authentication components
-│   │   │       ├── buttons/       # Auth buttons
-│   │   │       └── forms/         # Auth forms
-│   │   ├── payload/               # Payload components
-│   │   │   ├── rich-text.tsx      # Rich text renderer
-│   │   │   ├── blocks/            # Content blocks
-│   │   │   │   ├── render-blocks.tsx # Block renderer
-│   │   │   │   ├── banner-block/  # Banner block
-│   │   │   │   ├── code-block/    # Code block
-│   │   │   │   ├── content-block/ # Content block
-│   │   │   │   ├── cta-block/     # CTA block
-│   │   │   │   └── media-block/   # Media block
-│   │   │   ├── fields/            # Custom field components
-│   │   │   │   ├── link/          # Link field
-│   │   │   │   └── media/         # Media field
-│   │   │   ├── heroes/            # Hero components
-│   │   │   │   ├── config.ts      # Hero configuration
-│   │   │   │   ├── high-impact.tsx # High impact hero
-│   │   │   │   ├── low-impact.tsx # Low impact hero
-│   │   │   │   ├── medium-impact.tsx # Medium impact hero
-│   │   │   │   └── render-hero.tsx # Hero renderer
-│   │   │   └── plugins/           # Plugin components
-│   │   │       └── live-preview-listener.tsx
-│   │   ├── providers/             # Provider components
-│   │   │   └── theme/             # Theme components
-│   │   │       ├── theme-provider.tsx # Theme provider
-│   │   │       └── theme-toggle.tsx # Theme switcher
-│   │   └── ui/                    # UI components
-│   │       ├── design-system.tsx  # Design system
-│   │       ├── forms/             # Form components
-│   │       │   ├── form-box.tsx   # Form box
-│   │       │   └── submit-button.tsx # Submit button
-│   │       └── primitives/        # UI primitives
-│   │           ├── alert.tsx      # Alert component
-│   │           ├── badge.tsx      # Badge component
-│   │           ├── button.tsx     # Button component
-│   │           ├── checkbox.tsx   # Checkbox component
-│   │           ├── form.tsx       # Form component
-│   │           ├── input.tsx      # Input component
-│   │           └── label.tsx      # Label component
-│   ├── 🔗 fields/                 # Payload field types
-│   │   ├── link-group.ts          # Link group field
-│   │   ├── link.ts                # Link field
-│   │   └── slug/                  # Slug field
-│   │       ├── format-slug.ts     # Slug format
-│   │       ├── index.scss         # Slug styles
-│   │       ├── index.ts           # Slug field
-│   │       └── slug-component.tsx # Slug component
-│   ├── 🔧 lib/                    # Helper libraries
-│   │   ├── auth.ts                # Authentication
-│   │   └── utils.ts               # General helpers
-│   ├── 🔄 migrations/             # Database migrations
-│   ├── 🎨 styles/                 # Global styles
-│   │   └── globals.css            # Global CSS
-│   ├── 🛠️ utils/                  # Utility functions
-│   │   ├── plugins.ts             # Plugin configuration
-│   │   ├── helpers/               # Helper functions
-│   │   │   └── generate-preview-path.ts
-│   │   ├── meta/                  # Meta data
-│   │   │   ├── generate-meta.ts   # Meta generator
-│   │   │   └── open-graph.ts      # OpenGraph utilities
-│   │   ├── payload-hooks/         # Payload hooks
-│   │   │   ├── access.ts          # Access controls
-│   │   │   └── revalidate-redirects.ts
-│   │   └── validations/           # Validation schemas
-│   │       └── auth.ts            # Auth validations
-│   ├── payload-types.ts           # Payload type definitions
-│   └── payload.config.ts          # Payload configuration
-├── 🖼️ public/                     # Static files
-│   ├── favicon.ico                # Site icon
-│   ├── opengraph-image.webp       # OpenGraph image
-│   └── media/                     # Media files
+│   ├── 🧩 features/                   # Feature modules
+│   │   ├── auth/                      # Authentication feature
+│   │   │   ├── components/
+│   │   │   │   ├── buttons/           # Auth buttons (e.g. logout)
+│   │   │   │   └── forms/             # Login & register forms
+│   │   │   └── validations/           # Zod schemas
+│   │   │       └── auth.ts
+│   │   ├── common/                    # Shared UI components
+│   │   │   └── components/
+│   │   │       ├── footer.tsx         # Footer
+│   │   │       └── header.tsx         # Header
+│   │   └── payload/                   # Payload-related components & utils
+│   │       ├── components/
+│   │       │   ├── rich-text.tsx      # Rich text renderer
+│   │       │   ├── blocks/            # Content blocks
+│   │       │   │   ├── render-blocks.tsx
+│   │       │   │   ├── banner-block/
+│   │       │   │   ├── code-block/
+│   │       │   │   ├── content-block/
+│   │       │   │   ├── cta-block/
+│   │       │   │   └── media-block/
+│   │       │   ├── fields/            # Custom field UI
+│   │       │   │   ├── link/
+│   │       │   │   └── media/
+│   │       │   ├── heroes/            # Hero components
+│   │       │   │   ├── config.ts
+│   │       │   │   ├── high-impact.tsx
+│   │       │   │   ├── low-impact.tsx
+│   │       │   │   ├── medium-impact.tsx
+│   │       │   │   └── render-hero.tsx
+│   │       │   └── plugins/           # Plugin components
+│   │       └── utils/                 # Payload utilities
+│   │           ├── plugins.ts         # Plugin configuration
+│   │           ├── helpers/           # Helper functions
+│   │           └── payload-hooks/     # Payload hooks
+│   ├── 🔗 fields/                     # Payload custom field definitions
+│   │   ├── link-group.ts
+│   │   ├── link.ts
+│   │   └── slug/
+│   │       ├── format-slug.ts
+│   │       ├── index.scss
+│   │       ├── index.ts
+│   │       └── slug-component.tsx
+│   ├── 🧰 shared/                     # Shared utilities & design system
+│   │   ├── lib/
+│   │   │   ├── auth.ts                # Auth helpers
+│   │   │   ├── utils.ts               # General helpers
+│   │   │   └── seo/                   # SEO utilities
+│   │   │       ├── generate-meta.ts
+│   │   │       ├── index.ts
+│   │   │       ├── json-ld.ts
+│   │   │       └── open-graph.ts
+│   │   ├── providers/
+│   │   │   └── theme/
+│   │   │       ├── theme-provider.tsx
+│   │   │       └── theme-toggle.tsx
+│   │   └── ui/                        # UI design system
+│   │       ├── design-system.tsx
+│   │       ├── forms/
+│   │       │   ├── form-box.tsx
+│   │       │   └── submit-button.tsx
+│   │       └── primitives/            # Base UI primitives (shadcn/ui)
+│   │           ├── alert.tsx
+│   │           ├── badge.tsx
+│   │           ├── button.tsx
+│   │           ├── checkbox.tsx
+│   │           ├── form.tsx
+│   │           ├── input.tsx
+│   │           └── label.tsx
+│   ├── 🎨 styles/                     # Global styles
+│   │   ├── globals.css                # Global CSS
+│   │   └── themes.css                 # Theme variables
+│   ├── css.d.ts                       # CSS module type declarations
+│   ├── payload-types.ts               # Generated Payload types
+│   ├── payload.config.ts              # Payload configuration
+│   └── seed.ts                        # Database seeder
+├── 🖼️ public/                         # Static assets
 ├── ⚙️ Config Files
-│   ├── .env                       # Environment variables
-│   ├── .prettierrc.json           # Prettier settings
-│   ├── components.json            # Shadcn/ui config
-│   ├── next.config.ts            # Next.js configuration
-│   ├── package.json               # Project dependencies
-│   ├── tailwind.config.ts         # Tailwind configuration
-│   └── tsconfig.json              # TypeScript settings
+│   ├── components.json                # shadcn/ui config
+│   ├── eslint.config.mjs              # ESLint configuration
+│   ├── next.config.ts                 # Next.js configuration
+│   ├── next-env.d.ts                  # Next.js type declarations
+│   ├── package.json                   # Dependencies & scripts
+│   ├── postcss.config.ts              # PostCSS configuration
+│   ├── tailwind.config.ts             # Tailwind configuration
+│   └── tsconfig.json                  # TypeScript settings
 ```
 
 ## 🎮 Available Commands

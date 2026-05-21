@@ -9,7 +9,6 @@ const run = async () => {
     data: {
       email: 'admin@gmail.com',
       password: 'password123',
-      role: 'admin',
     },
   });
 

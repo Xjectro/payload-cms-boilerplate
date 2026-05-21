@@ -13,8 +13,6 @@ sharp.concurrency(1);
 
 import { Users } from '@/collections/Users';
 import { Media } from '@/collections/Media';
-import { Pages } from '@/collections/Pages';
-import { plugins } from '@/features/payload/utils/plugins';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -22,55 +20,24 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     user: Users.slug,
-    //
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    //
-    livePreview: {
-      breakpoints: [
-        {
-          label: 'Mobile',
-          name: 'mobile',
-          width: 375,
-          height: 667,
-        },
-        {
-          label: 'Tablet',
-          name: 'tablet',
-          width: 768,
-          height: 1024,
-        },
-        {
-          label: 'Desktop',
-          name: 'desktop',
-          width: 1440,
-          height: 900,
-        },
-      ],
-    },
   },
-  //
-  collections: [Users, Media, Pages],
+  collections: [Users, Media],
   editor: lexicalEditor(),
-  //
   secret: process.env.PAYLOAD_SECRET || '',
   cors: [process.env.APP_URL!],
-  //
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  //
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
   }),
-  //
   sharp,
-  //
-  plugins: [...plugins, payloadCloudPlugin()],
-  //
+  plugins: [payloadCloudPlugin()],
   jobs: {
     access: {
       run: ({ req: { user, headers } }) => {

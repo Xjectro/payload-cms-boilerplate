@@ -1,6 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { admin, anyone } from '@/features/payload/utils/payload-hooks/access';
+import { authenticated, anyone } from '@/features/payload/utils/payload-hooks/access';
 
 import type { CollectionConfig } from 'payload';
 
@@ -11,9 +11,9 @@ export const Media: CollectionConfig = {
   slug: 'media',
   access: {
     read: anyone,
-    create: admin,
-    update: admin,
-    delete: admin,
+    create: authenticated,
+    update: authenticated,
+    delete: authenticated,
   },
   fields: [
     {

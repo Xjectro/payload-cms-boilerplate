@@ -1,46 +1,7 @@
 import { cn } from '@/shared/lib/utils';
 
-import {
-  SerializedBlockNode,
-  SerializedLinkNode,
-  type DefaultTypedEditorState,
-} from '@payloadcms/richtext-lexical';
-import {
-  JSXConvertersFunction,
-  LinkJSXConverter,
-  RichText as ConvertRichText,
-} from '@payloadcms/richtext-lexical/react';
-
-import { BannerBlock } from '@/features/payload/components/blocks/banner-block';
-import { CallToActionBlock } from '@/features/payload/components/blocks/cta-block';
-import { MediaBlock } from '@/features/payload/components/blocks/media-block';
-
-import type {
-  BannerBlock as BannerBlockProps,
-  CallToActionBlock as CTABlockProps,
-  MediaBlock as MediaBlockProps,
-} from '@/payload-types';
-
-type NodeTypes = SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps>;
-
-const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
-  const { value, relationTo } = linkNode.fields.doc!;
-  if (typeof value !== 'object') {
-    throw new Error('Expected value to be an object');
-  }
-  const slug = value.slug;
-  return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`;
-};
-
-const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
-  ...defaultConverters,
-  ...LinkJSXConverter({ internalDocToHref }),
-  blocks: {
-    'banner-block': ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
-    'media-block': ({ node }) => <MediaBlock imgClassName="m-0" {...node.fields} />,
-    'cta-block': ({ node }) => <CallToActionBlock {...node.fields} />,
-  },
-});
+import { type DefaultTypedEditorState } from '@payloadcms/richtext-lexical';
+import { RichText as ConvertRichText } from '@payloadcms/richtext-lexical/react';
 
 type Props = {
   data: DefaultTypedEditorState;
@@ -58,7 +19,6 @@ export default function RichText({
 }: Props) {
   return (
     <ConvertRichText
-      converters={jsxConverters}
       className={cn(
         'payload-richtext',
         {

@@ -1,10 +1,14 @@
+import type { Config } from 'tailwindcss';
 import tailwindcssAnimate from 'tailwindcss-animate';
 import typography from '@tailwindcss/typography';
 
-/** @type {import('tailwindcss').Config} */
-const config = {
-  content: ['./src/app/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
-  darkMode: ['selector', '[data-theme="dark"]'],
+const config: Config = {
+  content: [
+    './src/app/**/*.{ts,tsx}',
+    './src/features/**/*.{ts,tsx}',
+    './src/shared/**/*.{ts,tsx}',
+  ],
+  darkMode: 'class',
   plugins: [tailwindcssAnimate, typography],
   theme: {
     container: {
@@ -50,6 +54,7 @@ const config = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
+        error: 'hsl(var(--error))',
         foreground: 'hsl(var(--foreground))',
         input: 'hsl(var(--input))',
         muted: {
@@ -70,7 +75,6 @@ const config = {
           foreground: 'hsl(var(--secondary-foreground))',
         },
         success: 'hsl(var(--success))',
-        error: 'hsl(var(--error))',
         warning: 'hsl(var(--warning))',
       },
       fontFamily: {
@@ -87,45 +91,6 @@ const config = {
           to: { height: '0' },
         },
       },
-      typography: () => ({
-        DEFAULT: {
-          css: [
-            {
-              '--tw-prose-body': 'var(--text)',
-              '--tw-prose-headings': 'var(--text)',
-              h1: {
-                fontWeight: 'normal',
-                marginBottom: '0.25em',
-              },
-            },
-          ],
-        },
-        base: {
-          css: [
-            {
-              h1: {
-                fontSize: '2.5rem',
-              },
-              h2: {
-                fontSize: '1.25rem',
-                fontWeight: 600,
-              },
-            },
-          ],
-        },
-        md: {
-          css: [
-            {
-              h1: {
-                fontSize: '3.5rem',
-              },
-              h2: {
-                fontSize: '1.5rem',
-              },
-            },
-          ],
-        },
-      }),
     },
   },
 };

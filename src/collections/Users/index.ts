@@ -1,4 +1,4 @@
-import { admin, anyone } from '@/features/payload/utils/payload-hooks/access';
+import { authenticated, anyone } from '@/features/payload/utils/payload-hooks/access';
 
 import type { CollectionConfig } from 'payload';
 
@@ -9,19 +9,8 @@ export const Users: CollectionConfig = {
   },
   auth: true,
   access: {
-    read: admin,
+    read: authenticated,
     create: anyone,
   },
-  fields: [
-    {
-      name: 'role',
-      type: 'select',
-      options: [
-        { label: 'Admin', value: 'admin' },
-        { label: 'User', value: 'user' },
-      ],
-      required: true,
-      defaultValue: 'user',
-    },
-  ],
+  fields: [],
 };

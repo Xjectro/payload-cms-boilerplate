@@ -1,17 +1,12 @@
-import { LogoutButton } from '@/features/auth/components/buttons/logout-button';
 import { Button } from '@/shared/ui/primitives/button';
-import { Nav } from '@/shared/ui/design-system';
+import { Nav } from '@/shared/ui/react/design-system';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { getUser } from '@/shared/lib/auth';
-
 import type { User } from '@/payload-types';
 
 export async function Header() {
-  const user: User | null = await getUser();
-
   return (
     <Nav
       className="sticky top-0 border-b bg-accent/30 backdrop-blur-md"
@@ -27,26 +22,6 @@ export async function Header() {
         />
         <h3 className="sm:text-lg">Payload CMS Boilerplate</h3>
       </Link>
-
-      <div className="flex gap-2">
-        {user ? (
-          <>
-            <LogoutButton />
-            <Button asChild>
-              <Link href="/dashboard">Dashboard</Link>
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button asChild variant="ghost">
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/register">Sign Up</Link>
-            </Button>
-          </>
-        )}
-      </div>
     </Nav>
   );
 }

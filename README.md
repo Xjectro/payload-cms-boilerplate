@@ -2,28 +2,26 @@
 
 > **Modern, powerful and super fun CMS experience!** 🎉
 
-Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.83.0** and **Next.js 16**! Everything is ready to get started right away! ✨
+Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.84.1** and **Next.js 16**! Everything is ready to get started right away! ✨
 
 ## 🌟 Features
 
 - 🎨 **Modern UI/UX** - Beautiful design with Tailwind CSS and Radix UI
-- 🔐 **Secure Authentication** - Login/Register system ready
 - 📱 **Responsive Design** - Mobile, tablet and desktop compatible
 - 🌙 **Dark/Light Mode** - Theme switcher for night/day mode
 - 📝 **Rich Text Editor** - Powerful text editor with Lexical
 - 🖼️ **Media Management** - File upload and image management
-- 🔍 **SEO Optimized** - Optimized for search engines
+- 🔍 **SEO Optimized** - Structured data, Open Graph, and JSON-LD support
 - 🌐 **GraphQL API** - Modern API structure
 - 🐳 **Docker Ready** - Easy to deploy
-- ⚡ **Live Preview** - Real-time preview
 
 ## 🛠️ Technologies
 
 | Technology          | Version | Description     |
 | ------------------- | ------- | --------------- |
 | 🚀 **Next.js**      | 16.2.4  | React framework |
-| 📦 **Payload CMS**  | 3.83.0  | Headless CMS    |
-| 🎨 **Tailwind CSS** | 4.2.2   | CSS framework   |
+| 📦 **Payload CMS**  | 3.84.1  | Headless CMS    |
+| 🎨 **Tailwind CSS** | 3.4.17  | CSS framework   |
 | 🗄️ **PostgreSQL**   | -       | Database        |
 | 🔧 **TypeScript**   | 6.0.3   | Type safety     |
 | 🎭 **React**        | 19.2.5  | UI library      |
@@ -40,7 +38,7 @@ cd payload-cms-boilerplate
 ### 2. 📦 Install Dependencies
 
 ```bash
-pnpm install
+npm install
 # or
 npm install
 # or
@@ -53,11 +51,10 @@ Create a `.env.local` file and add the required variables:
 
 ```env
 # Database Configuration
-DATABASE_URL=postgres://postgres:B100dy50.waf!@127.0.0.1:5432/this-is-my-test-db
+DATABASE_URL=postgres://postgres:password@127.0.0.1:5432/your-db
 
 # Application Secrets
 PAYLOAD_SECRET=YOUR_SECRET_HERE
-PREVIEW_SECRET=your_preview_secret_here
 
 # Site
 APP_URL=http://localhost:3000
@@ -75,13 +72,19 @@ NEXT_PUBLIC_TITLE=${APP_TITLE}
 docker-compose up -d
 
 # Migrate the database
-pnpm payload migrate
+npm payload migrate
 ```
 
-### 5. 🎉 Start the Project
+### 5. 🌱 Seed the Database (optional)
 
 ```bash
-pnpm dev
+npm seed
+```
+
+### 6. 🎉 Start the Project
+
+```bash
+npm dev
 ```
 
 Go to `http://localhost:3000` in your browser! 🎯
@@ -91,168 +94,115 @@ Go to `http://localhost:3000` in your browser! 🎯
 ```
 📦 payload-cms-boilerplate
 ├── 🎨 src/
-│   ├── 📄 app/                        # Next.js App Router
-│   │   ├── (api)/                     # API routes
-│   │   │   ├── health/                # Health check endpoint
-│   │   │   │   └── route.ts
-│   │   │   └── next/                  # Next.js integration
-│   │   │       ├── exit-preview/      # Exit preview mode
-│   │   │       │   └── route.ts
-│   │   │       └── preview/           # Enter preview mode
-│   │   │           └── route.ts
-│   │   ├── (client)/                  # Client-side application
-│   │   │   ├── layout.tsx             # Root client layout
-│   │   │   ├── (auth)/                # Authentication pages
-│   │   │   │   ├── template.tsx       # Auth template
-│   │   │   │   ├── login/             # Login page
-│   │   │   │   │   └── page.tsx
-│   │   │   │   └── register/          # Register page
+│   ├── 📄 app/                          # Next.js App Router
+│   │   ├── (payload)/                   # Payload CMS admin & API
+│   │   │   ├── layout.tsx               # Admin layout
+│   │   │   ├── custom.scss              # Admin custom styles
+│   │   │   ├── admin/                   # Admin panel
+│   │   │   │   ├── importMap.js         # Import map
+│   │   │   │   └── [[...segments]]/
+│   │   │   │       ├── not-found.tsx
 │   │   │   │       └── page.tsx
-│   │   │   ├── (protected)/           # Authenticated-only area
-│   │   │   │   ├── template.tsx       # Protected template
-│   │   │   │   └── dashboard/         # Dashboard
-│   │   │   │       └── page.tsx
-│   │   │   └── (public)/              # Publicly accessible area
-│   │   │       ├── template.tsx       # Public template
-│   │   │       ├── page.tsx           # Home page
-│   │   │       └── [slug]/            # Dynamic pages
-│   │   │           └── page.tsx
-│   │   └── (payload)/                 # Payload CMS admin
-│   │       ├── layout.tsx             # Admin layout
-│   │       ├── custom.scss            # Admin custom styles
-│   │       ├── admin/                 # Admin panel
-│   │       │   ├── importMap.js       # Import map
-│   │       │   └── [[...segments]]/
-│   │       │       ├── not-found.tsx
-│   │       │       └── page.tsx
-│   │       └── api/                   # Payload API routes
-│   │           ├── [...slug]/         # Dynamic API
-│   │           │   └── route.ts
-│   │           ├── graphql/           # GraphQL endpoint
-│   │           └── graphql-playground/
-│   ├── 🗂️ collections/               # Payload collections
-│   │   ├── Media/                     # Media collection
+│   │   │   └── api/                     # Payload API routes
+│   │   │       ├── [...slug]/           # Dynamic API
+│   │   │       ├── graphql/             # GraphQL endpoint
+│   │   │       └── graphql-playground/
+│   │   └── (public)/                    # Public-facing pages
+│   │       ├── layout.tsx               # Public layout
+│   │       ├── page.tsx                 # Home page
+│   │       └── template.tsx             # Public template
+│   ├── 🗂️ collections/                 # Payload collections
+│   │   ├── Media/                       # Media collection
 │   │   │   └── index.ts
-│   │   ├── Pages/                     # Pages collection
-│   │   │   ├── hooks.ts               # Page hooks
-│   │   │   └── index.ts
-│   │   └── Users/                     # Users collection
+│   │   └── Users/                       # Users collection
 │   │       └── index.ts
-│   ├── 🧩 features/                   # Feature modules
-│   │   ├── auth/                      # Authentication feature
-│   │   │   ├── components/
-│   │   │   │   ├── buttons/           # Auth buttons (e.g. logout)
-│   │   │   │   └── forms/             # Login & register forms
-│   │   │   └── validations/           # Zod schemas
-│   │   │       └── auth.ts
-│   │   ├── common/                    # Shared UI components
+│   ├── 🧩 features/                     # Feature modules
+│   │   ├── common/                      # Shared UI components
 │   │   │   └── components/
-│   │   │       ├── footer.tsx         # Footer
-│   │   │       └── header.tsx         # Header
-│   │   └── payload/                   # Payload-related components & utils
+│   │   │       ├── header.tsx           # Header
+│   │   │       └── footer.tsx           # Footer
+│   │   ├── payload/                     # Payload-related components & utils
+│   │   │   ├── components/
+│   │   │   │   ├── rich-text.tsx        # Rich text renderer
+│   │   │   │   └── fields/              # Custom field UI
+│   │   │   │       └── media/           # Media field (image & video)
+│   │   │   └── utils/
+│   │   │       └── payload-hooks/       # Payload hooks
+│   │   │           └── access.ts
+│   │   └── seo/                         # SEO feature module
 │   │       ├── components/
-│   │       │   ├── rich-text.tsx      # Rich text renderer
-│   │       │   ├── blocks/            # Content blocks
-│   │       │   │   ├── render-blocks.tsx
-│   │       │   │   ├── banner-block/
-│   │       │   │   ├── code-block/
-│   │       │   │   ├── content-block/
-│   │       │   │   ├── cta-block/
-│   │       │   │   └── media-block/
-│   │       │   ├── fields/            # Custom field UI
-│   │       │   │   ├── link/
-│   │       │   │   └── media/
-│   │       │   ├── heroes/            # Hero components
-│   │       │   │   ├── config.ts
-│   │       │   │   ├── high-impact.tsx
-│   │       │   │   ├── low-impact.tsx
-│   │       │   │   ├── medium-impact.tsx
-│   │       │   │   └── render-hero.tsx
-│   │       │   └── plugins/           # Plugin components
-│   │       └── utils/                 # Payload utilities
-│   │           ├── plugins.ts         # Plugin configuration
-│   │           ├── helpers/           # Helper functions
-│   │           └── payload-hooks/     # Payload hooks
-│   ├── 🔗 fields/                     # Payload custom field definitions
-│   │   ├── link-group.ts
-│   │   ├── link.ts
-│   │   └── slug/
-│   │       ├── format-slug.ts
-│   │       ├── index.scss
-│   │       ├── index.ts
-│   │       └── slug-component.tsx
-│   ├── 🧰 shared/                     # Shared utilities & design system
+│   │       │   └── home-structured-data.tsx
+│   │       ├── utils/
+│   │       │   ├── json-ld/             # Structured data generators
+│   │       │   │   ├── article.ts
+│   │       │   │   ├── breadcrumb.ts
+│   │       │   │   ├── event.ts
+│   │       │   │   ├── faq.ts
+│   │       │   │   ├── helpers.ts
+│   │       │   │   ├── how-to.ts
+│   │       │   │   ├── item-list.ts
+│   │       │   │   ├── local-business.ts
+│   │       │   │   ├── organization.ts
+│   │       │   │   ├── person.ts
+│   │       │   │   ├── product.ts
+│   │       │   │   ├── video.ts
+│   │       │   │   ├── webpage.ts
+│   │       │   │   └── website.ts
+│   │       │   └── open-graph.ts
+│   │       └── index.ts
+│   ├── 🧰 shared/                       # Shared utilities & design system
 │   │   ├── lib/
-│   │   │   ├── auth.ts                # Auth helpers
-│   │   │   ├── utils.ts               # General helpers
-│   │   │   └── seo/                   # SEO utilities
-│   │   │       ├── generate-meta.ts
-│   │   │       ├── index.ts
-│   │   │       ├── json-ld.ts
-│   │   │       └── open-graph.ts
+│   │   │   └── utils.ts                 # General helpers
 │   │   ├── providers/
-│   │   │   └── theme/
-│   │   │       ├── theme-provider.tsx
-│   │   │       └── theme-toggle.tsx
-│   │   └── ui/                        # UI design system
-│   │       ├── design-system.tsx
-│   │       ├── forms/
-│   │       │   ├── form-box.tsx
-│   │       │   └── submit-button.tsx
-│   │       └── primitives/            # Base UI primitives (shadcn/ui)
-│   │           ├── alert.tsx
-│   │           ├── badge.tsx
-│   │           ├── button.tsx
-│   │           ├── checkbox.tsx
-│   │           ├── form.tsx
-│   │           ├── input.tsx
-│   │           └── label.tsx
-│   ├── 🎨 styles/                     # Global styles
-│   │   ├── globals.css                # Global CSS
-│   │   └── themes.css                 # Theme variables
-│   ├── css.d.ts                       # CSS module type declarations
-│   ├── payload-types.ts               # Generated Payload types
-│   ├── payload.config.ts              # Payload configuration
-│   └── seed.ts                        # Database seeder
-├── 🖼️ public/                         # Static assets
-├── ⚙️ Config Files
-│   ├── components.json                # shadcn/ui config
-│   ├── eslint.config.mjs              # ESLint configuration
-│   ├── next.config.ts                 # Next.js configuration
-│   ├── next-env.d.ts                  # Next.js type declarations
-│   ├── package.json                   # Dependencies & scripts
-│   ├── postcss.config.ts              # PostCSS configuration
-│   ├── tailwind.config.ts             # Tailwind configuration
-│   └── tsconfig.json                  # TypeScript settings
+│   │   │   ├── client-provider.tsx      # Client-side providers
+│   │   │   └── server-provider.tsx      # Server-side providers
+│   │   └── ui/
+│   │       ├── primitives/              # Base UI primitives (shadcn/ui)
+│   │       │   ├── alert.tsx
+│   │       │   ├── badge.tsx
+│   │       │   ├── button.tsx
+│   │       │   ├── checkbox.tsx
+│   │       │   ├── form.tsx
+│   │       │   ├── input.tsx
+│   │       │   └── label.tsx
+│   │       └── react/
+│   │           └── design-system.tsx    # Design system entry
+│   ├── 🎨 styles/                       # Global styles
+│   │   ├── globals.css                  # Global CSS
+│   │   └── themes.css                   # Theme variables
+│   ├── css.d.ts                         # CSS module type declarations
+│   ├── payload-types.ts                 # Generated Payload types
+│   ├── payload.config.ts                # Payload configuration
+│   └── seed.ts                          # Database seeder
+├── 🖼️ public/                           # Static assets
+└── ⚙️ Config Files
+    ├── components.json                  # shadcn/ui config
+    ├── eslint.config.mjs                # ESLint configuration
+    ├── next.config.ts                   # Next.js configuration
+    ├── next-env.d.ts                    # Next.js type declarations
+    ├── package.json                     # Dependencies & scripts
+    └── tsconfig.json                    # TypeScript settings
 ```
 
 ## 🎮 Available Commands
 
-| Command        | Description                 |
-| -------------- | --------------------------- |
-| `pnpm dev`     | 🚀 Start development server |
-| `pnpm build`   | 📦 Build for production     |
-| `pnpm start`   | ▶️ Start production server  |
-| `pnpm lint`    | 🔍 Check code quality       |
-| `pnpm format`  | ✨ Format code              |
-| `pnpm payload` | ⚡ Payload CLI commands     |
+| Command           | Description                 |
+| ----------------- | --------------------------- |
+| `npm dev`        | 🚀 Start development server |
+| `npm build`      | 📦 Build for production     |
+| `npm start`      | ▶️ Start production server  |
+| `npm lint`       | 🔍 Check code quality       |
+| `npm format`     | ✨ Format code              |
+| `npm seed`       | 🌱 Seed the database        |
+| `npm payload`    | ⚡ Payload CLI commands     |
 
-## 🌈 Block Types
+## 🔍 SEO
 
-This boilerplate includes many pre-built block types:
+This boilerplate ships with a fully-featured SEO module out of the box:
 
-- 🎯 **Banner Block** - Eye-catching banners
-- 📝 **Content Block** - Rich content areas
-- 🖼️ **Media Block** - Image/video blocks
-- 💻 **Code Block** - Code display
-- 🎪 **CTA Block** - Call-to-action buttons
-
-## 🔐 Authentication
-
-- ✅ User registration and login
-- 🔒 Protected page redirects
-- 👤 User profile management
-- 🚪 Secure logout
+- 📊 **Structured Data (JSON-LD)** - Article, Product, FAQ, Event, Person, Organization, BreadcrumbList, HowTo, VideoObject, ItemList, LocalBusiness, WebPage, WebSite
+- 🖼️ **Open Graph** - Social media preview metadata
+- 🏠 **Home Structured Data** - Pre-wired component for the home page
 
 ## 🌐 API Endpoints
 

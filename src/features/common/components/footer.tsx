@@ -1,11 +1,11 @@
-import { Section, Container } from '@/shared/ui/design-system';
-import { ThemeToggle } from '@/shared/providers/theme/theme-toggle';
+import { Section, Container } from '@/shared/ui/react/design-system';
 
 import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
 
 export function Footer() {
-  const siteUrl = new URL(process.env.NEXT_PUBLIC_URL!);
+  const rawUrl = process.env.NEXT_PUBLIC_URL ?? 'http://localhost:3000';
+  const siteUrl = new URL(rawUrl);
   return (
     <footer className="bottom-0 border-t bg-accent/30">
       <Section>
@@ -30,7 +30,6 @@ export function Footer() {
               {new Date().getFullYear()}-present.
             </p>
           </div>
-          <ThemeToggle />
         </Container>
       </Section>
     </footer>

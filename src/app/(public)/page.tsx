@@ -2,9 +2,15 @@ import { Section, Container, Prose } from '@/shared/ui/react/design-system';
 import { Button } from '@/shared/ui/primitives/button';
 import { Check } from 'lucide-react';
 import { HomeStructuredData } from '@/features/seo/components/home-structured-data';
+import { buildMetadata } from '@/features/seo/utils/metadata';
 
 import Link from 'next/link';
 import { Fragment } from 'react';
+
+export const metadata = buildMetadata({
+  title: 'Home',
+  description: 'A modern, open-source SaaS starter kit built with Next.js 15 and Payload CMS.',
+});
 
 export default async function Page() {
   return (

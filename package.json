@@ -9,7 +9,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "payload": "payload",
-    "seed": "dotenv -- tsx src/seed.ts",
+    "seed": "dotenv -- tsx src/payload/seed.ts",
     "format": "prettier --write ./src",
     "lint": "next lint"
   },

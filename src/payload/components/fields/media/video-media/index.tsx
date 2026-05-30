@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 
-import type { Props as MediaProps } from '@/features/payload/components/fields/media/types';
+import type { Props as MediaProps } from '@/payload/components/fields/media/types';
 
 type Props = MediaProps;
 

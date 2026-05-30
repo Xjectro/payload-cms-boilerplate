@@ -1,10 +1,10 @@
 import React from 'react';
 import { Fragment } from 'react';
 
-import { ImageMedia } from '@/features/payload/components/fields/media/image-media';
-import { VideoMedia } from '@/features/payload/components/fields/media/video-media';
+import { ImageMedia } from '@/payload/components/fields/media/image-media';
+import { VideoMedia } from '@/payload/components/fields/media/video-media';
 
-import type { Props } from '@/features/payload/components/fields/media/types';
+import type { Props } from '@/payload/components/fields/media/types';
 
 function Media({ className, htmlElement = 'div', resource, ...props }: Props) {
   const isVideo = typeof resource === 'object' && resource?.mimeType?.includes('video');

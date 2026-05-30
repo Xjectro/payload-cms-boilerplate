@@ -116,47 +116,54 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   │   │   └── index.ts
 │   │   └── Users/                       # Users collection
 │   │       └── index.ts
-│   ├── 🧩 features/                     # Feature modules
-│   │   ├── common/                      # Shared UI components
-│   │   │   └── components/
-│   │   │       ├── header.tsx           # Header
-│   │   │       └── footer.tsx           # Footer
-│   │   ├── payload/                     # Payload-related components & utils
-│   │   │   ├── components/
-│   │   │   │   ├── rich-text.tsx        # Rich text renderer
-│   │   │   │   └── fields/              # Custom field UI
-│   │   │   │       └── media/           # Media field (image & video)
-│   │   │   └── utils/
-│   │   │       └── payload-hooks/       # Payload hooks
-│   │   │           └── access.ts
-│   │   └── seo/                         # SEO feature module
+│   ├── 🧩 features/                     # App-specific feature modules
+│   │   └── example/                     # Example feature (template for new features)
 │   │       ├── components/
-│   │       │   └── home-structured-data.tsx
-│   │       ├── utils/
-│   │       │   ├── json-ld/             # Structured data generators
-│   │       │   │   ├── article.ts
-│   │       │   │   ├── breadcrumb.ts
-│   │       │   │   ├── event.ts
-│   │       │   │   ├── faq.ts
-│   │       │   │   ├── helpers.ts
-│   │       │   │   ├── how-to.ts
-│   │       │   │   ├── item-list.ts
-│   │       │   │   ├── local-business.ts
-│   │       │   │   ├── organization.ts
-│   │       │   │   ├── person.ts
-│   │       │   │   ├── product.ts
-│   │       │   │   ├── video.ts
-│   │       │   │   ├── webpage.ts
-│   │       │   │   └── website.ts
-│   │       │   └── open-graph.ts
-│   │       └── index.ts
+│   │       ├── hooks/
+│   │       └── utils/
+│   ├── 📦 payload/                      # Payload CMS core
+│   │   ├── components/
+│   │   │   ├── rich-text.tsx            # Rich text renderer
+│   │   │   └── fields/
+│   │   │       └── media/               # Media field (image & video)
+│   │   ├── utils/
+│   │   │   └── payload-hooks/
+│   │   │       └── access.ts            # Access control helpers
+│   │   ├── payload.config.ts            # Payload configuration
+│   │   ├── payload-types.ts             # Generated Payload types
+│   │   └── seed.ts                      # Database seeder
 │   ├── 🧰 shared/                       # Shared utilities & design system
 │   │   ├── lib/
 │   │   │   └── utils.ts                 # General helpers
 │   │   ├── providers/
 │   │   │   ├── client-provider.tsx      # Client-side providers
 │   │   │   └── server-provider.tsx      # Server-side providers
+│   │   ├── seo/                         # SEO utilities
+│   │   │   ├── components/
+│   │   │   │   └── home-structured-data.tsx
+│   │   │   ├── utils/
+│   │   │   │   ├── json-ld/             # Structured data generators
+│   │   │   │   │   ├── article.ts
+│   │   │   │   │   ├── breadcrumb.ts
+│   │   │   │   │   ├── event.ts
+│   │   │   │   │   ├── faq.ts
+│   │   │   │   │   ├── helpers.ts
+│   │   │   │   │   ├── how-to.ts
+│   │   │   │   │   ├── item-list.ts
+│   │   │   │   │   ├── local-business.ts
+│   │   │   │   │   ├── organization.ts
+│   │   │   │   │   ├── person.ts
+│   │   │   │   │   ├── product.ts
+│   │   │   │   │   ├── video.ts
+│   │   │   │   │   ├── webpage.ts
+│   │   │   │   │   └── website.ts
+│   │   │   │   ├── metadata.ts          # buildMetadata helper
+│   │   │   │   └── open-graph.ts        # mergeOpenGraph helper
+│   │   │   └── index.ts                 # SEO module exports
 │   │   └── ui/
+│   │       ├── layout/                  # Page-level layout components
+│   │       │   ├── header.tsx
+│   │       │   └── footer.tsx
 │   │       ├── primitives/              # Base UI primitives (shadcn/ui)
 │   │       │   ├── alert.tsx
 │   │       │   ├── badge.tsx
@@ -170,10 +177,7 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   ├── 🎨 styles/                       # Global styles
 │   │   ├── globals.css                  # Global CSS
 │   │   └── themes.css                   # Theme variables
-│   ├── css.d.ts                         # CSS module type declarations
-│   ├── payload-types.ts                 # Generated Payload types
-│   ├── payload.config.ts                # Payload configuration
-│   └── seed.ts                          # Database seeder
+│   └── css.d.ts                         # CSS module type declarations
 ├── 🖼️ public/                           # Static assets
 └── ⚙️ Config Files
     ├── components.json                  # shadcn/ui config

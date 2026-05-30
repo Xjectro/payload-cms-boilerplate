@@ -4,7 +4,7 @@ import {
   buildWebPageJsonLd,
   buildBreadcrumbJsonLd,
   jsonLdScriptProps,
-} from '@/features/seo';
+} from '@/shared/seo';
 
 export function HomeStructuredData() {
   const siteUrl = process.env.NEXT_PUBLIC_URL;

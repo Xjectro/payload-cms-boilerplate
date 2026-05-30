@@ -6,7 +6,7 @@ import { cn } from '@/shared/lib/utils';
 import NextImage from 'next/image';
 import React from 'react';
 
-import type { Props as MediaProps } from '@/features/payload/components/fields/media/types';
+import type { Props as MediaProps } from '@/payload/components/fields/media/types';
 
 const breakpoints = {
   '3xl': 1920,

@@ -1,5 +1,5 @@
-import { Footer } from '@/features/common/components/footer';
-import { Header } from '@/features/common/components/header';
+import { Footer } from '@/shared/ui/layout/footer';
+import { Header } from '@/shared/ui/layout/header';
 import { Main } from '@/shared/ui/react/design-system';
 import { Fragment } from 'react';
 

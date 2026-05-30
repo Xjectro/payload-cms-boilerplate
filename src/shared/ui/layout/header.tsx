@@ -4,7 +4,7 @@ import { Nav } from '@/shared/ui/react/design-system';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { User } from '@/payload-types';
+import type { User } from '@/payload/payload-types';
 
 export async function Header() {
   return (

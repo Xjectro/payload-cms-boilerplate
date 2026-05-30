@@ -1,4 +1,4 @@
-import { authenticated, anyone } from '@/features/payload/utils/payload-hooks/access';
+import { authenticated, anyone } from '@/payload/utils/payload-hooks/access';
 
 import type { CollectionConfig } from 'payload';
 

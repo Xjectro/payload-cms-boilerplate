@@ -1,57 +1,64 @@
-# 🚀 Payload CMS Boilerplate
+# Payload CMS Boilerplate
 
-> **Modern, powerful and super fun CMS experience!** 🎉
+> Modern, production-ready CMS starter built with **Payload CMS 3.84.1** and **Next.js 16**.
 
-Hello world! 👋 This is a super powerful boilerplate built with **Payload CMS 3.84.1** and **Next.js 16**! Everything is ready to get started right away! ✨
+## Features
 
-## 🌟 Features
+- **Modern UI/UX** — Tailwind CSS, Radix UI, shadcn/ui primitives
+- **Responsive Design** — Mobile-first layout with header/footer components
+- **Dark/Light Mode** — CSS variable-based theme system
+- **Rich Text Editor** — Lexical-powered rich text with React renderer
+- **Media Management** — Image & video field components with S3 / Vercel Blob storage adapters
+- **SEO Module** — `buildMetadata`, `mergeOpenGraph`, JSON-LD generators, `robots.ts`, `sitemap.ts`
+- **Official Payload Plugins** — SEO, Redirects, Live Preview, Payload Cloud
+- **Forms** — react-hook-form + Zod validation
+- **Vercel Analytics** — Built-in with zero config
+- **GraphQL API** — Endpoint + Playground included
+- **TypeScript** — Strict typing throughout
 
-- 🎨 **Modern UI/UX** - Beautiful design with Tailwind CSS and Radix UI
-- 📱 **Responsive Design** - Mobile, tablet and desktop compatible
-- 🌙 **Dark/Light Mode** - Theme switcher for night/day mode
-- 📝 **Rich Text Editor** - Powerful text editor with Lexical
-- 🖼️ **Media Management** - File upload and image management
-- 🔍 **SEO Optimized** - Structured data, Open Graph, and JSON-LD support
-- 🌐 **GraphQL API** - Modern API structure
-- 🐳 **Docker Ready** - Easy to deploy
+## Technologies
 
-## 🛠️ Technologies
+| Technology          | Version  | Description               |
+| ------------------- | -------- | ------------------------- |
+| **Next.js**         | 16.2.4   | React framework           |
+| **Payload CMS**     | 3.84.1   | Headless CMS              |
+| **Tailwind CSS**    | 3.4.17   | CSS framework             |
+| **PostgreSQL**      | —        | Database (via pg adapter) |
+| **TypeScript**      | 6.0.3    | Type safety               |
+| **React**           | 19.2.5   | UI library                |
+| **Zod**             | 4.x      | Schema validation         |
+| **react-hook-form** | 7.x      | Form handling             |
 
-| Technology          | Version | Description     |
-| ------------------- | ------- | --------------- |
-| 🚀 **Next.js**      | 16.2.4  | React framework |
-| 📦 **Payload CMS**  | 3.84.1  | Headless CMS    |
-| 🎨 **Tailwind CSS** | 3.4.17  | CSS framework   |
-| 🗄️ **PostgreSQL**   | -       | Database        |
-| 🔧 **TypeScript**   | 6.0.3   | Type safety     |
-| 🎭 **React**        | 19.2.5  | UI library      |
+## Quick Start
 
-## 🏁 Quick Start
-
-### 1. 📥 Clone the Project
+### 1. Clone the Project
 
 ```bash
 git clone https://github.com/Xjectro/payload-cms-boilerplate.git
 cd payload-cms-boilerplate
 ```
 
-### 2. 📦 Install Dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
 # or
-npm install
-# or
 yarn install
+# or
+pnpm install
 ```
 
-### 3. ⚙️ Environment Setup
+### 3. Environment Setup
 
-Create a `.env.local` file and add the required variables:
+Copy `.env.example` to `.env` and fill in the required variables:
+
+```bash
+cp .env.example .env
+```
 
 ```env
 # Database Configuration
-DATABASE_URL=postgres://postgres:password@127.0.0.1:5432/your-db
+DATABASE_URL=postgres://postgres:<password>@127.0.0.1:5432/payload_cms_boilerplate
 
 # Application Secrets
 PAYLOAD_SECRET=YOUR_SECRET_HERE
@@ -65,89 +72,86 @@ NEXT_PUBLIC_URL=${APP_URL}
 NEXT_PUBLIC_TITLE=${APP_TITLE}
 ```
 
-### 4. 🗄️ Setup Database
+### 4. Database Setup
 
 ```bash
-# Start PostgreSQL (with Docker)
-docker-compose up -d
-
-# Migrate the database
-npm payload migrate
+# Run database migrations
+npm run payload migrate
 ```
 
-### 5. 🌱 Seed the Database (optional)
+### 5. Seed the Database (optional)
 
 ```bash
-npm seed
+npm run seed
 ```
 
-### 6. 🎉 Start the Project
+### 6. Start the Development Server
 
 ```bash
-npm dev
+npm run dev
 ```
 
-Go to `http://localhost:3000` in your browser! 🎯
+Open `http://localhost:3000` in your browser.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-📦 payload-cms-boilerplate
-├── 🎨 src/
-│   ├── 📄 app/                          # Next.js App Router
-│   │   ├── (payload)/                   # Payload CMS admin & API
-│   │   │   ├── layout.tsx               # Admin layout
-│   │   │   ├── custom.scss              # Admin custom styles
-│   │   │   ├── admin/                   # Admin panel
-│   │   │   │   ├── importMap.js         # Import map
+payload-cms-boilerplate
+├── src/
+│   ├── app/
+│   │   ├── (payload)/                        # Payload CMS admin & API
+│   │   │   ├── admin/
+│   │   │   │   ├── importMap.js
 │   │   │   │   └── [[...segments]]/
 │   │   │   │       ├── not-found.tsx
 │   │   │   │       └── page.tsx
-│   │   │   └── api/                     # Payload API routes
-│   │   │       ├── [...slug]/           # Dynamic API
-│   │   │       ├── graphql/             # GraphQL endpoint
-│   │   │       └── graphql-playground/
-│   │   └── (public)/                    # Public-facing pages
-│   │       ├── layout.tsx               # Public layout
-│   │       ├── page.tsx                 # Home page
-│   │       └── template.tsx             # Public template
-│   ├── 🗂️ collections/                 # Payload collections
-│   │   ├── Media/                       # Media collection
-│   │   │   └── index.ts
-│   │   └── Users/                       # Users collection
-│   │       └── index.ts
-│   ├── 🧩 features/                     # App-specific feature modules
-│   │   └── example/                     # Example feature (template for new features)
+│   │   │   ├── api/
+│   │   │   │   ├── [...slug]/route.ts
+│   │   │   │   ├── graphql/route.ts
+│   │   │   │   └── graphql-playground/route.ts
+│   │   │   ├── custom.scss
+│   │   │   └── layout.tsx
+│   │   ├── (public)/                         # Public-facing pages
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   └── template.tsx
+│   │   ├── robots.ts                         # Auto-generated robots.txt
+│   │   └── sitemap.ts                        # Auto-generated sitemap
+│   ├── collections/
+│   │   ├── Media/index.ts
+│   │   └── Users/index.ts
+│   ├── features/                             # Feature modules (add your own here)
+│   │   └── example/
 │   │       ├── components/
 │   │       ├── hooks/
 │   │       └── utils/
-│   ├── 📦 payload/                      # Payload CMS core
+│   ├── payload/
 │   │   ├── components/
-│   │   │   ├── rich-text.tsx            # Rich text renderer
-│   │   │   └── fields/
-│   │   │       └── media/               # Media field (image & video)
+│   │   │   ├── rich-text.tsx                 # Lexical rich text renderer
+│   │   │   └── fields/media/                 # Image & video field components
+│   │   │       ├── index.tsx
+│   │   │       ├── types.ts
+│   │   │       ├── image-media/index.tsx
+│   │   │       └── video-media/index.tsx
 │   │   ├── utils/
-│   │   │   └── payload-hooks/
-│   │   │       └── access.ts            # Access control helpers
-│   │   ├── payload.config.ts            # Payload configuration
-│   │   ├── payload-types.ts             # Generated Payload types
-│   │   └── seed.ts                      # Database seeder
-│   ├── 🧰 shared/                       # Shared utilities & design system
-│   │   ├── lib/
-│   │   │   └── utils.ts                 # General helpers
+│   │   │   └── payload-hooks/access.ts       # Access control helpers
+│   │   ├── payload.config.ts                 # Payload configuration
+│   │   ├── payload-types.ts                  # Generated types (do not edit)
+│   │   └── seed.ts                           # Database seeder
+│   ├── shared/
+│   │   ├── lib/utils.ts                      # General helpers (cn, etc.)
 │   │   ├── providers/
-│   │   │   ├── client-provider.tsx      # Client-side providers
-│   │   │   └── server-provider.tsx      # Server-side providers
-│   │   ├── seo/                         # SEO utilities
+│   │   │   ├── client-provider.tsx
+│   │   │   └── server-provider.tsx
+│   │   ├── seo/
 │   │   │   ├── components/
 │   │   │   │   └── home-structured-data.tsx
 │   │   │   ├── utils/
-│   │   │   │   ├── json-ld/             # Structured data generators
+│   │   │   │   ├── json-ld/                  # JSON-LD schema generators
 │   │   │   │   │   ├── article.ts
 │   │   │   │   │   ├── breadcrumb.ts
 │   │   │   │   │   ├── event.ts
 │   │   │   │   │   ├── faq.ts
-│   │   │   │   │   ├── helpers.ts
 │   │   │   │   │   ├── how-to.ts
 │   │   │   │   │   ├── item-list.ts
 │   │   │   │   │   ├── local-business.ts
@@ -156,15 +160,18 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   │   │   │   │   ├── product.ts
 │   │   │   │   │   ├── video.ts
 │   │   │   │   │   ├── webpage.ts
-│   │   │   │   │   └── website.ts
-│   │   │   │   ├── metadata.ts          # buildMetadata helper
-│   │   │   │   └── open-graph.ts        # mergeOpenGraph helper
-│   │   │   └── index.ts                 # SEO module exports
+│   │   │   │   │   ├── website.ts
+│   │   │   │   │   ├── helpers.ts
+│   │   │   │   │   ├── types.ts
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── metadata.ts               # buildMetadata helper
+│   │   │   │   └── open-graph.ts             # mergeOpenGraph helper
+│   │   │   └── index.ts
 │   │   └── ui/
-│   │       ├── layout/                  # Page-level layout components
+│   │       ├── layout/
 │   │       │   ├── header.tsx
 │   │       │   └── footer.tsx
-│   │       ├── primitives/              # Base UI primitives (shadcn/ui)
+│   │       ├── primitives/                   # shadcn/ui components
 │   │       │   ├── alert.tsx
 │   │       │   ├── badge.tsx
 │   │       │   ├── button.tsx
@@ -173,88 +180,96 @@ Go to `http://localhost:3000` in your browser! 🎯
 │   │       │   ├── input.tsx
 │   │       │   └── label.tsx
 │   │       └── react/
-│   │           └── design-system.tsx    # Design system entry
-│   ├── 🎨 styles/                       # Global styles
-│   │   ├── globals.css                  # Global CSS
-│   │   └── themes.css                   # Theme variables
-│   └── css.d.ts                         # CSS module type declarations
-├── 🖼️ public/                           # Static assets
-└── ⚙️ Config Files
-    ├── components.json                  # shadcn/ui config
-    ├── eslint.config.mjs                # ESLint configuration
-    ├── next.config.ts                   # Next.js configuration
-    ├── next-env.d.ts                    # Next.js type declarations
-    ├── package.json                     # Dependencies & scripts
-    └── tsconfig.json                    # TypeScript settings
+│   │           └── design-system.tsx
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── themes.css
+│   └── css.d.ts
+├── public/
+│   ├── favicon.ico
+│   └── opengraph-image.webp
+└── Config Files
+    ├── .env.example
+    ├── components.json                       # shadcn/ui config
+    ├── eslint.config.mjs
+    ├── next.config.ts
+    ├── postcss.config.mjs
+    ├── tailwind.config.ts
+    ├── tsconfig.json
+    └── .prettierrc.json
 ```
 
-## 🎮 Available Commands
+## Available Commands
 
-| Command           | Description                 |
-| ----------------- | --------------------------- |
-| `npm dev`        | 🚀 Start development server |
-| `npm build`      | 📦 Build for production     |
-| `npm start`      | ▶️ Start production server  |
-| `npm lint`       | 🔍 Check code quality       |
-| `npm format`     | ✨ Format code              |
-| `npm seed`       | 🌱 Seed the database        |
-| `npm payload`    | ⚡ Payload CLI commands     |
+| Command                  | Description                      |
+| ------------------------ | -------------------------------- |
+| `npm run dev`            | Start development server         |
+| `npm run build`          | Build for production             |
+| `npm run start`          | Start production server          |
+| `npm run lint`           | Check code quality               |
+| `npm run format`         | Format code with Prettier        |
+| `npm run seed`           | Seed the database                |
+| `npm run payload`        | Payload CLI (migrate, generate…) |
 
-## 🔍 SEO
+## SEO Module
 
-This boilerplate ships with a fully-featured SEO module out of the box:
+The SEO module lives in `src/shared/seo/` and is ready to use out of the box:
 
-- 📊 **Structured Data (JSON-LD)** - Article, Product, FAQ, Event, Person, Organization, BreadcrumbList, HowTo, VideoObject, ItemList, LocalBusiness, WebPage, WebSite
-- 🖼️ **Open Graph** - Social media preview metadata
-- 🏠 **Home Structured Data** - Pre-wired component for the home page
+- **`buildMetadata`** — generates `Metadata` objects for Next.js pages
+- **`mergeOpenGraph`** — merges Open Graph tags with site defaults
+- **JSON-LD generators** — Article, BreadcrumbList, Event, FAQ, HowTo, ItemList, LocalBusiness, Organization, Person, Product, VideoObject, WebPage, WebSite
+- **`HomeStructuredData`** — drop-in component for the home page
+- **`robots.ts` / `sitemap.ts`** — auto-generated at build time
 
-## 🌐 API Endpoints
+## Storage Adapters
+
+Two storage adapters are pre-installed and can be activated in `payload.config.ts`:
+
+- **AWS S3** — `@payloadcms/storage-s3`
+- **Vercel Blob** — `@payloadcms/storage-vercel-blob`
+
+## API Endpoints
 
 | Endpoint                  | Description            |
 | ------------------------- | ---------------------- |
-| `/api/graphql`            | 🔗 GraphQL API         |
-| `/api/graphql-playground` | 🎮 GraphQL Playground  |
-| `/admin`                  | 🔧 Payload Admin Panel |
+| `/api/graphql`            | GraphQL API            |
+| `/api/graphql-playground` | GraphQL Playground     |
+| `/admin`                  | Payload Admin Panel    |
 
-## 🚀 Deployment
+## Deployment
 
-### Deploy to Vercel
+### Vercel
 
 ```bash
-# With Vercel CLI
 vercel deploy
-
-# or push to GitHub, auto deploy! 🎉
 ```
 
-## 🤝 Contributing
+Or connect the GitHub repository in the Vercel dashboard for automatic deploys on push.
 
-1. 🍴 Fork it
-2. 🌿 Create feature branch (`git checkout -b feature/amazing-feature`)
-3. 💾 Commit your changes (`git commit -m 'Add amazing feature'`)
-4. 📤 Push to the branch (`git push origin feature/amazing-feature`)
-5. 🎯 Create a Pull Request
+Set all environment variables from `.env.example` in your Vercel project settings before deploying.
 
-## 📞 Support
+## Contributing
 
-Got any issues? 🤔
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-- 📧 Website: https://xjectro.com
-- 💬 GitHub Issues: [Issues page](https://github.com/Xjectro/payload-cms-boilerplate/issues)
-- 📖 Documentation: [Payload CMS Docs](https://payloadcms.com/docs)
+## Support
 
-## 📄 License
+- Website: https://xjectro.com
+- GitHub Issues: [Issues page](https://github.com/Xjectro/payload-cms-boilerplate/issues)
+- Payload CMS Docs: [payloadcms.com/docs](https://payloadcms.com/docs)
 
-This project is licensed under the MIT License. See the `LICENSE` file for details! 📜
+## License
+
+MIT — see the `LICENSE` file for details.
 
 ---
 
 <div align="center">
 
-**⭐ Don't forget to star if you liked it! ⭐**
-
-Made with ❤️ by [Xjectro](https://github.com/Xjectro)
-
-🚀 **Happy coding!** 🚀
+Made with love by [Xjectro](https://github.com/Xjectro)
 
 </div>

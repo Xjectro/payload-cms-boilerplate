@@ -96,50 +96,60 @@ Open `http://localhost:3000` in your browser.
 ## Project Structure
 
 ```
-payload-cms-boilerplate
+payload-cms-boilerplate/
 ├── src/
 │   ├── app/
-│   │   ├── (payload)/                        # Payload CMS admin & API
+│   │   ├── (payload)/
 │   │   │   ├── admin/
-│   │   │   │   ├── importMap.js
-│   │   │   │   └── [[...segments]]/
-│   │   │   │       ├── not-found.tsx
-│   │   │   │       └── page.tsx
+│   │   │   │   ├── [[...segments]]/
+│   │   │   │   │   ├── not-found.tsx
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── importMap.js
 │   │   │   ├── api/
-│   │   │   │   ├── [...slug]/route.ts
-│   │   │   │   ├── graphql/route.ts
-│   │   │   │   └── graphql-playground/route.ts
+│   │   │   │   ├── [...slug]/
+│   │   │   │   │   └── route.ts
+│   │   │   │   ├── graphql/
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── graphql-playground/
+│   │   │   │       └── route.ts
 │   │   │   ├── custom.scss
 │   │   │   └── layout.tsx
-│   │   ├── (public)/                         # Public-facing pages
+│   │   ├── (public)/
 │   │   │   ├── layout.tsx
 │   │   │   ├── page.tsx
 │   │   │   └── template.tsx
-│   │   ├── robots.ts                         # Auto-generated robots.txt
-│   │   └── sitemap.ts                        # Auto-generated sitemap
+│   │   ├── robots.ts
+│   │   └── sitemap.ts
 │   ├── collections/
-│   │   ├── Media/index.ts
-│   │   └── Users/index.ts
-│   ├── features/                             # Feature modules (add your own here)
+│   │   ├── Media/
+│   │   │   └── index.ts
+│   │   └── Users/
+│   │       └── index.ts
+│   ├── features/
 │   │   └── example/
 │   │       ├── components/
 │   │       ├── hooks/
 │   │       └── utils/
 │   ├── payload/
 │   │   ├── components/
-│   │   │   ├── rich-text.tsx                 # Lexical rich text renderer
-│   │   │   └── fields/media/                 # Image & video field components
-│   │   │       ├── index.tsx
-│   │   │       ├── types.ts
-│   │   │       ├── image-media/index.tsx
-│   │   │       └── video-media/index.tsx
+│   │   │   ├── fields/
+│   │   │   │   └── media/
+│   │   │   │       ├── image-media/
+│   │   │   │       │   └── index.tsx
+│   │   │   │       ├── video-media/
+│   │   │   │       │   └── index.tsx
+│   │   │   │       ├── index.tsx
+│   │   │   │       └── types.ts
+│   │   │   └── rich-text.tsx
 │   │   ├── utils/
-│   │   │   └── payload-hooks/access.ts       # Access control helpers
-│   │   ├── payload.config.ts                 # Payload configuration
-│   │   ├── payload-types.ts                  # Generated types (do not edit)
-│   │   └── seed.ts                           # Database seeder
+│   │   │   └── payload-hooks/
+│   │   │       └── access.ts
+│   │   ├── payload.config.ts
+│   │   ├── payload-types.ts
+│   │   └── seed.ts
 │   ├── shared/
-│   │   ├── lib/utils.ts                      # General helpers (cn, etc.)
+│   │   ├── lib/
+│   │   │   └── utils.ts
 │   │   ├── providers/
 │   │   │   ├── client-provider.tsx
 │   │   │   └── server-provider.tsx
@@ -147,31 +157,31 @@ payload-cms-boilerplate
 │   │   │   ├── components/
 │   │   │   │   └── home-structured-data.tsx
 │   │   │   ├── utils/
-│   │   │   │   ├── json-ld/                  # JSON-LD schema generators
+│   │   │   │   ├── json-ld/
 │   │   │   │   │   ├── article.ts
 │   │   │   │   │   ├── breadcrumb.ts
 │   │   │   │   │   ├── event.ts
 │   │   │   │   │   ├── faq.ts
+│   │   │   │   │   ├── helpers.ts
 │   │   │   │   │   ├── how-to.ts
+│   │   │   │   │   ├── index.ts
 │   │   │   │   │   ├── item-list.ts
 │   │   │   │   │   ├── local-business.ts
 │   │   │   │   │   ├── organization.ts
 │   │   │   │   │   ├── person.ts
 │   │   │   │   │   ├── product.ts
+│   │   │   │   │   ├── types.ts
 │   │   │   │   │   ├── video.ts
 │   │   │   │   │   ├── webpage.ts
-│   │   │   │   │   ├── website.ts
-│   │   │   │   │   ├── helpers.ts
-│   │   │   │   │   ├── types.ts
-│   │   │   │   │   └── index.ts
-│   │   │   │   ├── metadata.ts               # buildMetadata helper
-│   │   │   │   └── open-graph.ts             # mergeOpenGraph helper
+│   │   │   │   │   └── website.ts
+│   │   │   │   ├── metadata.ts
+│   │   │   │   └── open-graph.ts
 │   │   │   └── index.ts
 │   │   └── ui/
 │   │       ├── layout/
 │   │       │   ├── header.tsx
 │   │       │   └── footer.tsx
-│   │       ├── primitives/                   # shadcn/ui components
+│   │       ├── primitives/
 │   │       │   ├── alert.tsx
 │   │       │   ├── badge.tsx
 │   │       │   ├── button.tsx
@@ -188,15 +198,16 @@ payload-cms-boilerplate
 ├── public/
 │   ├── favicon.ico
 │   └── opengraph-image.webp
-└── Config Files
-    ├── .env.example
-    ├── components.json                       # shadcn/ui config
-    ├── eslint.config.mjs
-    ├── next.config.ts
-    ├── postcss.config.mjs
-    ├── tailwind.config.ts
-    ├── tsconfig.json
-    └── .prettierrc.json
+├── .env.example
+├── .prettierrc.json
+├── components.json
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 
 ## Available Commands

@@ -9,7 +9,7 @@ import type { User } from '@/payload/payload-types';
 export async function Header() {
   return (
     <Nav
-      className="sticky top-0 border-b bg-accent/30 backdrop-blur-md"
+      className="bg-accent/30 sticky top-0 border-b backdrop-blur-md"
       containerClassName="flex justify-between items-center gap-4"
     >
       <Link href="/" className="flex items-center gap-3">

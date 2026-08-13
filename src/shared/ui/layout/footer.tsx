@@ -7,7 +7,7 @@ export function Footer() {
   const rawUrl = process.env.NEXT_PUBLIC_URL ?? 'http://localhost:3000';
   const siteUrl = new URL(rawUrl);
   return (
-    <footer className="bottom-0 border-t bg-accent/30">
+    <footer className="bg-accent/30 bottom-0 border-t">
       <Section>
         <Container className="grid grid-cols-[1fr_auto] gap-6">
           <div className="grid gap-6">
@@ -20,12 +20,12 @@ export function Footer() {
                 Payload CMS.
               </Balancer>
             </p>
-            <div className="mb-6 flex flex-col gap-4 text-sm text-muted-foreground underline underline-offset-4 md:mb-0 md:flex-row">
+            <div className="text-muted-foreground mb-6 flex flex-col gap-4 text-sm underline underline-offset-4 md:mb-0 md:flex-row">
               <Link href="/privacy-policy">Privacy Policy</Link>
               <Link href="/terms-of-service">Terms of Service</Link>
               <Link href="/cookie-policy">Cookie Policy</Link>
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-muted-foreground text-xs">
               © <Link href={siteUrl.href}>{siteUrl.hostname}</Link>. All rights reserved.
               {new Date().getFullYear()}-present.
             </p>

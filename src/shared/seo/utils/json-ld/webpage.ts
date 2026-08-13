@@ -2,12 +2,7 @@ import { getSiteUrl } from './helpers';
 import type { WithContext, ImageObjectJsonLd } from './types';
 
 type WebPageType =
-  | 'WebPage'
-  | 'AboutPage'
-  | 'ContactPage'
-  | 'CollectionPage'
-  | 'SearchResultsPage'
-  | 'ItemPage';
+  'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'SearchResultsPage' | 'ItemPage';
 
 export type WebPageJsonLd = WithContext<{
   '@type': WebPageType;

@@ -7,11 +7,7 @@ import type {
 } from './types';
 
 type OrganizationType =
-  | 'Organization'
-  | 'Corporation'
-  | 'NGO'
-  | 'EducationalOrganization'
-  | 'GovernmentOrganization';
+  'Organization' | 'Corporation' | 'NGO' | 'EducationalOrganization' | 'GovernmentOrganization';
 
 export type OrganizationJsonLd = WithContext<{
   '@type': OrganizationType;

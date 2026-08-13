@@ -1,14 +1,13 @@
+@import 'tailwindcss';
 @import './themes.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config '../../tailwind.config.ts';
 
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply min-h-screen bg-background text-foreground;
+    @apply bg-background text-foreground min-h-screen;
   }
 }
